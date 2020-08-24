@@ -1,0 +1,6 @@
+framework module Pods_MSCPTests {
+  umbrella header "Pods-MSCPTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

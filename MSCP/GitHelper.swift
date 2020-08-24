@@ -14,6 +14,7 @@ class GitHelper {
     
     let kdefaultRepo = "https://github.com/usnistgov/macos_security.git"
     
+
     func getRepo(repo: String?=nil) {
         let myGroup = DispatchGroup()
         myGroup.enter()
@@ -27,12 +28,13 @@ class GitHelper {
             myGroup.leave()
         }
         myGroup.wait()
+        
     }
     
     func listBranches() -> [String]{
         let task = Process()
         task.executableURL = URL(fileURLWithPath: "/usr/bin/git")
-        task.arguments = ["--git-dir=/var/tmp/macos_security/.git", "branch", "-a"]
+        task.arguments = ["--git-dir=/var/tmp/macos_security/.git", "branch", "-r"]
         
         let outputPipe = Pipe()
         let errorPipe = Pipe()
@@ -48,7 +50,7 @@ class GitHelper {
         
         var branches = output.components(separatedBy: "\n")
         
-        branches.removeFirst(2)
+        branches.removeFirst()
         branches.removeLast()
         return branches
         
@@ -58,45 +60,44 @@ class GitHelper {
         let myGroup = DispatchGroup()
         myGroup.enter()
         DispatchQueue.global().async {
-
+        
             let task = Process()
             task.executableURL = URL(fileURLWithPath: "/usr/bin/git")
-            let branchName = branch.components(separatedBy: "/")[2]
-            task.currentDirectoryURL = URL(fileURLWithPath: "/var/tmp/macos_security")
+            let branchName = branch.components(separatedBy: "/")[1]
+            task.currentDirectoryURL = URL(fileURLWithPath: "/var/tmp/macos_security/")
             task.arguments = ["checkout", branchName]
             
             do {
                 try task.run()
-                myGroup.leave()
             } catch {
                 print("Error")
-                myGroup.leave()
             }
+            task.waitUntilExit()
             
+            let taskTwo = Process()
+            taskTwo.executableURL = URL(fileURLWithPath: "/usr/bin/git")
+            taskTwo.currentDirectoryURL = URL(fileURLWithPath: "/var/tmp/macos_security/")
+
+            taskTwo.arguments = ["pull"]
+
+            do {
+                try taskTwo.run()
+            } catch {
+                print("Error")
+            }
+            taskTwo.waitUntilExit()
+            
+            myGroup.leave()
         }
         myGroup.wait()
-        
-        
 
-//        myGroup.enter()
-//        
-//        DispatchQueue.global().async {
-//            let task = Process()
-//            task.executableURL = URL(fileURLWithPath: "/usr/bin/git")
-//            task.currentDirectoryURL = URL(fileURLWithPath: "/var/tmp/macos_security")
-//            
-//            task.arguments = ["pull"]
-//            
-//            do {
-//                try task.run()
-//            } catch {
-//                print("Error")
-//            }
-//            myGroup.leave()
-//        }
-//        myGroup.wait()
         
+        let newGroup = DispatchGroup()
+        newGroup.enter()
+
         
+         
+      
         
     }
 }

@@ -1,0 +1,1080 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0229C14262032742C71E3873F2D97B17 /* Node.Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C80481D4483EADEEBEDD8C1B1C142B /* Node.Sequence.swift */; };
+		03B52E0F2C663A93B3A465F2DF2E56A5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F940C819049CFF8741C0F5E3E075E607 /* Cocoa.framework */; };
+		042D0D0FAE879212BD26831CF54A0AE7 /* Node.Scalar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C65BF1E1F3FA696F29EE1FEEBFCA736 /* Node.Scalar.swift */; };
+		07A515D620E82B17662F95402D4A1264 /* Constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACCA39DB5CF8D05B3AB3204D9C65332 /* Constructor.swift */; };
+		08F2C5C720CAA49447D91FC70814F160 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684816F6B23EF5F99844BB1475DEF4F2 /* Tag.swift */; };
+		094755ACC4797617306FF2795B57F002 /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = 96CCA7706B6A1F2A8492C1DB1B857086 /* emitter.c */; };
+		0B964EF4EA01DA1A23F8C904863DD0B5 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51462BA8A17B5F604FCF5CFB1B229B0A /* Decoder.swift */; };
+		15CBB8CB5460BE33AD60FEA79C878EF7 /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = D7580F3BADC4589F7CB7A78C1724111E /* reader.c */; };
+		270705628775823339A283F25C75B29F /* YamlError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B7B21F80E027934C2290F2D613C59 /* YamlError.swift */; };
+		2F23F0870CB58A3EAB1C5366CDB05092 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F940C819049CFF8741C0F5E3E075E607 /* Cocoa.framework */; };
+		33EB44D0B2CF6C5EB2996158F459FEDF /* Pods-MSCP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B982BF2D3FE1BE65D5F9C8119AACB83 /* Pods-MSCP-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3EAB86A38CEEEC3281E522BC8EE4FA96 /* Pods-MSCP-MSCPUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C72869B11E416A2F57E9562660568A5 /* Pods-MSCP-MSCPUITests-dummy.m */; };
+		46BB311B52CF2F4A75E53B99594BEAE1 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C7321F4E62D921216594598A4DC421 /* Resolver.swift */; };
+		47E0485EA46B0ADF22421D36A08F71C6 /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4BF7B69A66BB7D5AEEAD9A5A5945D /* Mark.swift */; };
+		4DC27C4E3D9E1612B4E87A573D8F1E6E /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD926EBA1D4FECB1319A91463B513 /* scanner.c */; };
+		4F53DC016105B6B0D740A14D7E69ABB0 /* Pods-MSCP-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E2E9BBA22F03C546321747D1A1B782 /* Pods-MSCP-dummy.m */; };
+		514DD89A0BC72C92D7878C885457A22E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379073E4D212E1DE0BE8B00241C60215 /* Parser.swift */; };
+		55E9F48547CD3B0D56336A7E813684D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F940C819049CFF8741C0F5E3E075E607 /* Cocoa.framework */; };
+		55F9C672C80D6BF67394346C02F38E3B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F940C819049CFF8741C0F5E3E075E607 /* Cocoa.framework */; };
+		58BEBE9E85A0808677BE552B59F53AC3 /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = EB80658E9001B3C67EF078123F7AAA61 /* api.c */; };
+		6E4347954E37F5E3231ECB8F6C046810 /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = 82B8901D0CB44E6F7E046EFF2A2547B9 /* writer.c */; };
+		7A9C100963E908B52DEFCD2726B9E8AC /* Yams.h in Headers */ = {isa = PBXBuildFile; fileRef = E6292667C0563AE527CE0A915CC689F1 /* Yams.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B713C5B10608FA133867179411EF75B /* Representer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC04E4CE1E60D2721BA0BC44465BDA97 /* Representer.swift */; };
+		8BFDEE0B644B8B4FE4CAEB7AF00B6183 /* Yams-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F83D0778769495522BCC543AD11746 /* Yams-dummy.m */; };
+		928CD4F07EE2EE7D74550114D365B538 /* Yams-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CA3731EEBF39C5D7DF13223D65A8F54 /* Yams-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99E589C9DD16F166AC80B0F30297ADDD /* Emitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67905A1C10CFEF7F1C8AAC3B6B97A7CD /* Emitter.swift */; };
+		A28A6DA3B6D16431492EAFF0BF59C795 /* String+Yams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E8B3C2468E15C51267D74D5EDEF2D5 /* String+Yams.swift */; };
+		AE31A05CC5CD600441393C3E818844A7 /* Pods-MSCP-MSCPUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F089B30455CCD25200FCE4A96FE7AF /* Pods-MSCP-MSCPUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B7866BDD8A06447EAAFB17DBDFB24DA9 /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4CCE2871147BF8F1B37EE30FB56858 /* Encoder.swift */; };
+		CE189E8F62779BF779C8BDB3AA449C8B /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0629948C8635864798C5A9C95A891BE7 /* Node.swift */; };
+		D0D00E65085D8406968975DB436B0764 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 78DE797F1CD4327C83163103B1FDC784 /* parser.c */; };
+		D376A19923AE3AF167BD36902DF97057 /* Pods-MSCPTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 14894B8EA344107C469E37E7D170311A /* Pods-MSCPTests-dummy.m */; };
+		DFF98B9A00C22286483B8F9E6F7E37AD /* Node.Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD12C5BDCD4551B64F6EBAFEF2D5E11 /* Node.Mapping.swift */; };
+		EBCAE7DBC36A1C734124EF865B4952AF /* CYaml.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A702734DFEDD06FB299FC6330646AAB /* CYaml.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F1CCB20417763364C0D900E5520AACB9 /* shim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A5AA922870BA2796F4F0918F929E6E /* shim.swift */; };
+		F5606FFFB78659FBC285EB3A85EB551B /* yaml.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D6D64D4FDECB0818845472449752DCF /* yaml.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE30A63259AC11364A0089DD1F8E16B3 /* yaml_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 490D148FB2C31A570C21B3FF488ACFDA /* yaml_private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE929FD50FBD3F2529E0BFB810F10F6D /* Pods-MSCPTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E3579ADB1C443B75B686257CABA2F8CE /* Pods-MSCPTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		17AD84241A57E2A0760AA87069BF62D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A5852F1D89CE2FE43485C63F48F223A;
+			remoteInfo = Yams;
+		};
+		257626E861BD3609E1C83105A831D827 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A5852F1D89CE2FE43485C63F48F223A;
+			remoteInfo = Yams;
+		};
+		4C552D7CB9252633E6E9E7F83F5E8AE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2EC70141862184DF6F4A8BF0B7B0FFEE;
+			remoteInfo = "Pods-MSCP";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0629948C8635864798C5A9C95A891BE7 /* Node.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Node.swift; path = Sources/Yams/Node.swift; sourceTree = "<group>"; };
+		06C80481D4483EADEEBEDD8C1B1C142B /* Node.Sequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Node.Sequence.swift; path = Sources/Yams/Node.Sequence.swift; sourceTree = "<group>"; };
+		0CA3731EEBF39C5D7DF13223D65A8F54 /* Yams-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Yams-umbrella.h"; sourceTree = "<group>"; };
+		0FE4BF7B69A66BB7D5AEEAD9A5A5945D /* Mark.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mark.swift; path = Sources/Yams/Mark.swift; sourceTree = "<group>"; };
+		11A5AA922870BA2796F4F0918F929E6E /* shim.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = shim.swift; path = Sources/Yams/shim.swift; sourceTree = "<group>"; };
+		11AD7F42FF9F100964C606AB76CB2924 /* Pods-MSCP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MSCP.debug.xcconfig"; sourceTree = "<group>"; };
+		11E8B3C2468E15C51267D74D5EDEF2D5 /* String+Yams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Yams.swift"; path = "Sources/Yams/String+Yams.swift"; sourceTree = "<group>"; };
+		12CD8D36181FA8B3450A71636E0E4467 /* Pods-MSCPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MSCPTests.debug.xcconfig"; sourceTree = "<group>"; };
+		14894B8EA344107C469E37E7D170311A /* Pods-MSCPTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MSCPTests-dummy.m"; sourceTree = "<group>"; };
+		17574AB4557F202C7B29AD1C5EBE5B84 /* Pods-MSCP-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MSCP-Info.plist"; sourceTree = "<group>"; };
+		1B982BF2D3FE1BE65D5F9C8119AACB83 /* Pods-MSCP-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MSCP-umbrella.h"; sourceTree = "<group>"; };
+		21C7321F4E62D921216594598A4DC421 /* Resolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resolver.swift; path = Sources/Yams/Resolver.swift; sourceTree = "<group>"; };
+		2832D8F4281BE6A7AC503E62B6781D20 /* Pods-MSCP-MSCPUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MSCP-MSCPUITests-Info.plist"; sourceTree = "<group>"; };
+		2ACCA39DB5CF8D05B3AB3204D9C65332 /* Constructor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constructor.swift; path = Sources/Yams/Constructor.swift; sourceTree = "<group>"; };
+		34F089B30455CCD25200FCE4A96FE7AF /* Pods-MSCP-MSCPUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MSCP-MSCPUITests-umbrella.h"; sourceTree = "<group>"; };
+		379073E4D212E1DE0BE8B00241C60215 /* Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Sources/Yams/Parser.swift; sourceTree = "<group>"; };
+		46EAD926EBA1D4FECB1319A91463B513 /* scanner.c */ = {isa = PBXFileReference; includeInIndex = 1; name = scanner.c; path = Sources/CYaml/src/scanner.c; sourceTree = "<group>"; };
+		481B7B21F80E027934C2290F2D613C59 /* YamlError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YamlError.swift; path = Sources/Yams/YamlError.swift; sourceTree = "<group>"; };
+		490D148FB2C31A570C21B3FF488ACFDA /* yaml_private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = yaml_private.h; path = Sources/CYaml/src/yaml_private.h; sourceTree = "<group>"; };
+		4942860652A7456F8EE47B68A13D6F0F /* Pods-MSCPTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MSCPTests-Info.plist"; sourceTree = "<group>"; };
+		4BAB70B90E62D8D7FEAAF07598209D40 /* Pods_MSCP_MSCPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MSCP_MSCPUITests.framework; path = "Pods-MSCP-MSCPUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C72869B11E416A2F57E9562660568A5 /* Pods-MSCP-MSCPUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MSCP-MSCPUITests-dummy.m"; sourceTree = "<group>"; };
+		4D34FA46564B3FBAC8D1CD76CF4BD2B4 /* Pods_MSCPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MSCPTests.framework; path = "Pods-MSCPTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		51462BA8A17B5F604FCF5CFB1B229B0A /* Decoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Decoder.swift; path = Sources/Yams/Decoder.swift; sourceTree = "<group>"; };
+		5A702734DFEDD06FB299FC6330646AAB /* CYaml.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CYaml.h; path = Sources/CYaml/include/CYaml.h; sourceTree = "<group>"; };
+		5C65BF1E1F3FA696F29EE1FEEBFCA736 /* Node.Scalar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Node.Scalar.swift; path = Sources/Yams/Node.Scalar.swift; sourceTree = "<group>"; };
+		67905A1C10CFEF7F1C8AAC3B6B97A7CD /* Emitter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Emitter.swift; path = Sources/Yams/Emitter.swift; sourceTree = "<group>"; };
+		684816F6B23EF5F99844BB1475DEF4F2 /* Tag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tag.swift; path = Sources/Yams/Tag.swift; sourceTree = "<group>"; };
+		6AFF5B01A8A4F5EA96832FA6D7BBAA69 /* Pods-MSCP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MSCP.release.xcconfig"; sourceTree = "<group>"; };
+		73E2E9BBA22F03C546321747D1A1B782 /* Pods-MSCP-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MSCP-dummy.m"; sourceTree = "<group>"; };
+		740765EAE197E4A1A875BDE1C3E54FCB /* Pods-MSCP-MSCPUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MSCP-MSCPUITests-frameworks.sh"; sourceTree = "<group>"; };
+		7650E35AE3AFF1218110A5F649714176 /* Pods-MSCP-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MSCP-frameworks.sh"; sourceTree = "<group>"; };
+		77627FACAC437E9F909A1809C875ABE4 /* Pods-MSCP-MSCPUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MSCP-MSCPUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		78DE797F1CD4327C83163103B1FDC784 /* parser.c */ = {isa = PBXFileReference; includeInIndex = 1; name = parser.c; path = Sources/CYaml/src/parser.c; sourceTree = "<group>"; };
+		7C3B74FFF018839550D602267219BB4A /* Pods-MSCPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MSCPTests.release.xcconfig"; sourceTree = "<group>"; };
+		7D6D64D4FDECB0818845472449752DCF /* yaml.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = yaml.h; path = Sources/CYaml/include/yaml.h; sourceTree = "<group>"; };
+		82B8901D0CB44E6F7E046EFF2A2547B9 /* writer.c */ = {isa = PBXFileReference; includeInIndex = 1; name = writer.c; path = Sources/CYaml/src/writer.c; sourceTree = "<group>"; };
+		8A28D53649D8A8BFBC3750600B5A5B45 /* Pods-MSCP-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MSCP-acknowledgements.plist"; sourceTree = "<group>"; };
+		8EAACC6E9E2DCDE54118F9D036D5B7A1 /* Pods-MSCP-MSCPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MSCP-MSCPUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8F8C10577CA4A6DACE6BDDDD508692E3 /* Pods-MSCP-MSCPUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MSCP-MSCPUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		96CCA7706B6A1F2A8492C1DB1B857086 /* emitter.c */ = {isa = PBXFileReference; includeInIndex = 1; name = emitter.c; path = Sources/CYaml/src/emitter.c; sourceTree = "<group>"; };
+		9A4CCE2871147BF8F1B37EE30FB56858 /* Encoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Encoder.swift; path = Sources/Yams/Encoder.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A23E78AAF73269A0380990329140DEC1 /* Yams-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Yams-prefix.pch"; sourceTree = "<group>"; };
+		A9901E16D307BD2837C1CDF4F5B9E830 /* Yams.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Yams.modulemap; sourceTree = "<group>"; };
+		AA5CDD068616E01959ACC2BD08F1F6A5 /* Pods-MSCPTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MSCPTests.modulemap"; sourceTree = "<group>"; };
+		B1E921131FF9817EEB028D0910408AE2 /* Pods_MSCP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MSCP.framework; path = "Pods-MSCP.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDD12C5BDCD4551B64F6EBAFEF2D5E11 /* Node.Mapping.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Node.Mapping.swift; path = Sources/Yams/Node.Mapping.swift; sourceTree = "<group>"; };
+		BFA79CC3090548197F276DAFA5644E28 /* Yams.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Yams.framework; path = Yams.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C89415A161B33699FF37ED3EF43F03DF /* Pods-MSCP-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MSCP-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CBBE5DD85DA0F55C08D17E7CBA071DF6 /* Yams-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Yams-Info.plist"; sourceTree = "<group>"; };
+		D2F83D0778769495522BCC543AD11746 /* Yams-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Yams-dummy.m"; sourceTree = "<group>"; };
+		D7580F3BADC4589F7CB7A78C1724111E /* reader.c */ = {isa = PBXFileReference; includeInIndex = 1; name = reader.c; path = Sources/CYaml/src/reader.c; sourceTree = "<group>"; };
+		E3579ADB1C443B75B686257CABA2F8CE /* Pods-MSCPTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MSCPTests-umbrella.h"; sourceTree = "<group>"; };
+		E6292667C0563AE527CE0A915CC689F1 /* Yams.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Yams.h; path = Sources/Yams/Yams.h; sourceTree = "<group>"; };
+		EB80658E9001B3C67EF078123F7AAA61 /* api.c */ = {isa = PBXFileReference; includeInIndex = 1; name = api.c; path = Sources/CYaml/src/api.c; sourceTree = "<group>"; };
+		EC04E4CE1E60D2721BA0BC44465BDA97 /* Representer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Representer.swift; path = Sources/Yams/Representer.swift; sourceTree = "<group>"; };
+		ED1C2872D0668F83AD2ED2114122C411 /* Pods-MSCP.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MSCP.modulemap"; sourceTree = "<group>"; };
+		EDF930C4417B128B3A74C934BB67C3A3 /* Pods-MSCP-MSCPUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MSCP-MSCPUITests.modulemap"; sourceTree = "<group>"; };
+		EEF8D719384EE382FB9DB944FD41B5E8 /* Pods-MSCP-MSCPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MSCP-MSCPUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EF8774FDD727C57EE960EB196A5C1024 /* Yams.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Yams.release.xcconfig; sourceTree = "<group>"; };
+		F4A0564F0E361480C50A518C9C39E8B4 /* Pods-MSCPTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MSCPTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		F89BE0619179DBB76F005E00DC74C86A /* Yams.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Yams.debug.xcconfig; sourceTree = "<group>"; };
+		F940C819049CFF8741C0F5E3E075E607 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		FF06AF91FBDB3F23B019D9B51AE1695F /* Pods-MSCPTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MSCPTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		25E2211A385BFD7B7A06C8F9BEEF7E4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03B52E0F2C663A93B3A465F2DF2E56A5 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		333ED0B70DD340D9C0346EDBD9A4B96B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F23F0870CB58A3EAB1C5366CDB05092 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9D1184907374285B29A12CE643197C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55F9C672C80D6BF67394346C02F38E3B /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8E4A97A5A46D47FB04B4C7BAF205DC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55E9F48547CD3B0D56336A7E813684D8 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		28E4FB2F13B044C767704BACB2E4AAF4 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				60D2FABCF590DB3833FDB5604CE6AA17 /* Pods-MSCP */,
+				76ABF020FC34A06AFB83FACFB76C16F8 /* Pods-MSCP-MSCPUITests */,
+				5F1CD4D3209EFA33148180B55EC514A3 /* Pods-MSCPTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		5F1CD4D3209EFA33148180B55EC514A3 /* Pods-MSCPTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA5CDD068616E01959ACC2BD08F1F6A5 /* Pods-MSCPTests.modulemap */,
+				FF06AF91FBDB3F23B019D9B51AE1695F /* Pods-MSCPTests-acknowledgements.markdown */,
+				F4A0564F0E361480C50A518C9C39E8B4 /* Pods-MSCPTests-acknowledgements.plist */,
+				14894B8EA344107C469E37E7D170311A /* Pods-MSCPTests-dummy.m */,
+				4942860652A7456F8EE47B68A13D6F0F /* Pods-MSCPTests-Info.plist */,
+				E3579ADB1C443B75B686257CABA2F8CE /* Pods-MSCPTests-umbrella.h */,
+				12CD8D36181FA8B3450A71636E0E4467 /* Pods-MSCPTests.debug.xcconfig */,
+				7C3B74FFF018839550D602267219BB4A /* Pods-MSCPTests.release.xcconfig */,
+			);
+			name = "Pods-MSCPTests";
+			path = "Target Support Files/Pods-MSCPTests";
+			sourceTree = "<group>";
+		};
+		60D2FABCF590DB3833FDB5604CE6AA17 /* Pods-MSCP */ = {
+			isa = PBXGroup;
+			children = (
+				ED1C2872D0668F83AD2ED2114122C411 /* Pods-MSCP.modulemap */,
+				C89415A161B33699FF37ED3EF43F03DF /* Pods-MSCP-acknowledgements.markdown */,
+				8A28D53649D8A8BFBC3750600B5A5B45 /* Pods-MSCP-acknowledgements.plist */,
+				73E2E9BBA22F03C546321747D1A1B782 /* Pods-MSCP-dummy.m */,
+				7650E35AE3AFF1218110A5F649714176 /* Pods-MSCP-frameworks.sh */,
+				17574AB4557F202C7B29AD1C5EBE5B84 /* Pods-MSCP-Info.plist */,
+				1B982BF2D3FE1BE65D5F9C8119AACB83 /* Pods-MSCP-umbrella.h */,
+				11AD7F42FF9F100964C606AB76CB2924 /* Pods-MSCP.debug.xcconfig */,
+				6AFF5B01A8A4F5EA96832FA6D7BBAA69 /* Pods-MSCP.release.xcconfig */,
+			);
+			name = "Pods-MSCP";
+			path = "Target Support Files/Pods-MSCP";
+			sourceTree = "<group>";
+		};
+		76ABF020FC34A06AFB83FACFB76C16F8 /* Pods-MSCP-MSCPUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EDF930C4417B128B3A74C934BB67C3A3 /* Pods-MSCP-MSCPUITests.modulemap */,
+				77627FACAC437E9F909A1809C875ABE4 /* Pods-MSCP-MSCPUITests-acknowledgements.markdown */,
+				8F8C10577CA4A6DACE6BDDDD508692E3 /* Pods-MSCP-MSCPUITests-acknowledgements.plist */,
+				4C72869B11E416A2F57E9562660568A5 /* Pods-MSCP-MSCPUITests-dummy.m */,
+				740765EAE197E4A1A875BDE1C3E54FCB /* Pods-MSCP-MSCPUITests-frameworks.sh */,
+				2832D8F4281BE6A7AC503E62B6781D20 /* Pods-MSCP-MSCPUITests-Info.plist */,
+				34F089B30455CCD25200FCE4A96FE7AF /* Pods-MSCP-MSCPUITests-umbrella.h */,
+				EEF8D719384EE382FB9DB944FD41B5E8 /* Pods-MSCP-MSCPUITests.debug.xcconfig */,
+				8EAACC6E9E2DCDE54118F9D036D5B7A1 /* Pods-MSCP-MSCPUITests.release.xcconfig */,
+			);
+			name = "Pods-MSCP-MSCPUITests";
+			path = "Target Support Files/Pods-MSCP-MSCPUITests";
+			sourceTree = "<group>";
+		};
+		88F8CAEFC32BF2FD4A64A271CF5707F4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9901E16D307BD2837C1CDF4F5B9E830 /* Yams.modulemap */,
+				D2F83D0778769495522BCC543AD11746 /* Yams-dummy.m */,
+				CBBE5DD85DA0F55C08D17E7CBA071DF6 /* Yams-Info.plist */,
+				A23E78AAF73269A0380990329140DEC1 /* Yams-prefix.pch */,
+				0CA3731EEBF39C5D7DF13223D65A8F54 /* Yams-umbrella.h */,
+				F89BE0619179DBB76F005E00DC74C86A /* Yams.debug.xcconfig */,
+				EF8774FDD727C57EE960EB196A5C1024 /* Yams.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Yams";
+			sourceTree = "<group>";
+		};
+		9DFDAA296403C63E61AFCCB82BD9AFAE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BC351534D3A4C97419EC3F934D4DF970 /* Yams */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BC351534D3A4C97419EC3F934D4DF970 /* Yams */ = {
+			isa = PBXGroup;
+			children = (
+				EB80658E9001B3C67EF078123F7AAA61 /* api.c */,
+				2ACCA39DB5CF8D05B3AB3204D9C65332 /* Constructor.swift */,
+				5A702734DFEDD06FB299FC6330646AAB /* CYaml.h */,
+				51462BA8A17B5F604FCF5CFB1B229B0A /* Decoder.swift */,
+				96CCA7706B6A1F2A8492C1DB1B857086 /* emitter.c */,
+				67905A1C10CFEF7F1C8AAC3B6B97A7CD /* Emitter.swift */,
+				9A4CCE2871147BF8F1B37EE30FB56858 /* Encoder.swift */,
+				0FE4BF7B69A66BB7D5AEEAD9A5A5945D /* Mark.swift */,
+				0629948C8635864798C5A9C95A891BE7 /* Node.swift */,
+				BDD12C5BDCD4551B64F6EBAFEF2D5E11 /* Node.Mapping.swift */,
+				5C65BF1E1F3FA696F29EE1FEEBFCA736 /* Node.Scalar.swift */,
+				06C80481D4483EADEEBEDD8C1B1C142B /* Node.Sequence.swift */,
+				78DE797F1CD4327C83163103B1FDC784 /* parser.c */,
+				379073E4D212E1DE0BE8B00241C60215 /* Parser.swift */,
+				D7580F3BADC4589F7CB7A78C1724111E /* reader.c */,
+				EC04E4CE1E60D2721BA0BC44465BDA97 /* Representer.swift */,
+				21C7321F4E62D921216594598A4DC421 /* Resolver.swift */,
+				46EAD926EBA1D4FECB1319A91463B513 /* scanner.c */,
+				11A5AA922870BA2796F4F0918F929E6E /* shim.swift */,
+				11E8B3C2468E15C51267D74D5EDEF2D5 /* String+Yams.swift */,
+				684816F6B23EF5F99844BB1475DEF4F2 /* Tag.swift */,
+				82B8901D0CB44E6F7E046EFF2A2547B9 /* writer.c */,
+				7D6D64D4FDECB0818845472449752DCF /* yaml.h */,
+				490D148FB2C31A570C21B3FF488ACFDA /* yaml_private.h */,
+				481B7B21F80E027934C2290F2D613C59 /* YamlError.swift */,
+				E6292667C0563AE527CE0A915CC689F1 /* Yams.h */,
+				88F8CAEFC32BF2FD4A64A271CF5707F4 /* Support Files */,
+			);
+			name = Yams;
+			path = Yams;
+			sourceTree = "<group>";
+		};
+		CBD43E0947D94E318A0ED1350CFF29ED /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				F940C819049CFF8741C0F5E3E075E607 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				E0A1E60606E0BF6E2E10F1F01350DFE8 /* Frameworks */,
+				9DFDAA296403C63E61AFCCB82BD9AFAE /* Pods */,
+				D8D5E8D0364803AAD05B0C67E3C6191E /* Products */,
+				28E4FB2F13B044C767704BACB2E4AAF4 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D8D5E8D0364803AAD05B0C67E3C6191E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1E921131FF9817EEB028D0910408AE2 /* Pods_MSCP.framework */,
+				4BAB70B90E62D8D7FEAAF07598209D40 /* Pods_MSCP_MSCPUITests.framework */,
+				4D34FA46564B3FBAC8D1CD76CF4BD2B4 /* Pods_MSCPTests.framework */,
+				BFA79CC3090548197F276DAFA5644E28 /* Yams.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E0A1E60606E0BF6E2E10F1F01350DFE8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CBD43E0947D94E318A0ED1350CFF29ED /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0441DB74CD37A0CC9CC496966AD35739 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBCAE7DBC36A1C734124EF865B4952AF /* CYaml.h in Headers */,
+				F5606FFFB78659FBC285EB3A85EB551B /* yaml.h in Headers */,
+				FE30A63259AC11364A0089DD1F8E16B3 /* yaml_private.h in Headers */,
+				928CD4F07EE2EE7D74550114D365B538 /* Yams-umbrella.h in Headers */,
+				7A9C100963E908B52DEFCD2726B9E8AC /* Yams.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26AD38760189716457C3708F2AADD1EC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33EB44D0B2CF6C5EB2996158F459FEDF /* Pods-MSCP-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BD22E5566555422416637702248D9ED /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE31A05CC5CD600441393C3E818844A7 /* Pods-MSCP-MSCPUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7873732A917F7DC42CA61077213FB91 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE929FD50FBD3F2529E0BFB810F10F6D /* Pods-MSCPTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2B15270B1B5A59114EAC81485FF88566 /* Pods-MSCP-MSCPUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE3491EAA04EDC2D8CE2FC9BFCABF02A /* Build configuration list for PBXNativeTarget "Pods-MSCP-MSCPUITests" */;
+			buildPhases = (
+				8BD22E5566555422416637702248D9ED /* Headers */,
+				A3E969A139462D156233142BA013EC0A /* Sources */,
+				E9D1184907374285B29A12CE643197C4 /* Frameworks */,
+				9D883226A34374311DC9CAECF3A01C03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92C3320395E4A7F7A5C59F1AD9BA7D9F /* PBXTargetDependency */,
+			);
+			name = "Pods-MSCP-MSCPUITests";
+			productName = "Pods-MSCP-MSCPUITests";
+			productReference = 4BAB70B90E62D8D7FEAAF07598209D40 /* Pods_MSCP_MSCPUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2EC70141862184DF6F4A8BF0B7B0FFEE /* Pods-MSCP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7A95BC54B802A07649368CAE9A921AC /* Build configuration list for PBXNativeTarget "Pods-MSCP" */;
+			buildPhases = (
+				26AD38760189716457C3708F2AADD1EC /* Headers */,
+				BE5FFBB6A3D440F13BD7C8A351E05489 /* Sources */,
+				333ED0B70DD340D9C0346EDBD9A4B96B /* Frameworks */,
+				1991ED3071E4EE5FE0205C0D14BEAD8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A598C86E9D67D75213204F3A2149280 /* PBXTargetDependency */,
+			);
+			name = "Pods-MSCP";
+			productName = "Pods-MSCP";
+			productReference = B1E921131FF9817EEB028D0910408AE2 /* Pods_MSCP.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7A5852F1D89CE2FE43485C63F48F223A /* Yams */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D72BBE8E62832B284253280E3C3632F6 /* Build configuration list for PBXNativeTarget "Yams" */;
+			buildPhases = (
+				0441DB74CD37A0CC9CC496966AD35739 /* Headers */,
+				6B9535D6911DE75993E747EBA8620934 /* Sources */,
+				25E2211A385BFD7B7A06C8F9BEEF7E4F /* Frameworks */,
+				02F818509CC5378171589AD329164C5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Yams;
+			productName = Yams;
+			productReference = BFA79CC3090548197F276DAFA5644E28 /* Yams.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8FABE71840975D136BEC09A4007C3A8C /* Pods-MSCPTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61384942A8F33554037EF29230164293 /* Build configuration list for PBXNativeTarget "Pods-MSCPTests" */;
+			buildPhases = (
+				D7873732A917F7DC42CA61077213FB91 /* Headers */,
+				06A57740E9B5D8B2DF5097E10989E04A /* Sources */,
+				F8E4A97A5A46D47FB04B4C7BAF205DC7 /* Frameworks */,
+				A4D5EE94964A88B7C8434EEE3CC4A01F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3E5488AA2B78F44BE6C7EA544CA472EE /* PBXTargetDependency */,
+			);
+			name = "Pods-MSCPTests";
+			productName = "Pods-MSCPTests";
+			productReference = 4D34FA46564B3FBAC8D1CD76CF4BD2B4 /* Pods_MSCPTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = D8D5E8D0364803AAD05B0C67E3C6191E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2EC70141862184DF6F4A8BF0B7B0FFEE /* Pods-MSCP */,
+				2B15270B1B5A59114EAC81485FF88566 /* Pods-MSCP-MSCPUITests */,
+				8FABE71840975D136BEC09A4007C3A8C /* Pods-MSCPTests */,
+				7A5852F1D89CE2FE43485C63F48F223A /* Yams */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		02F818509CC5378171589AD329164C5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1991ED3071E4EE5FE0205C0D14BEAD8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D883226A34374311DC9CAECF3A01C03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4D5EE94964A88B7C8434EEE3CC4A01F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		06A57740E9B5D8B2DF5097E10989E04A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D376A19923AE3AF167BD36902DF97057 /* Pods-MSCPTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6B9535D6911DE75993E747EBA8620934 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58BEBE9E85A0808677BE552B59F53AC3 /* api.c in Sources */,
+				07A515D620E82B17662F95402D4A1264 /* Constructor.swift in Sources */,
+				0B964EF4EA01DA1A23F8C904863DD0B5 /* Decoder.swift in Sources */,
+				094755ACC4797617306FF2795B57F002 /* emitter.c in Sources */,
+				99E589C9DD16F166AC80B0F30297ADDD /* Emitter.swift in Sources */,
+				B7866BDD8A06447EAAFB17DBDFB24DA9 /* Encoder.swift in Sources */,
+				47E0485EA46B0ADF22421D36A08F71C6 /* Mark.swift in Sources */,
+				DFF98B9A00C22286483B8F9E6F7E37AD /* Node.Mapping.swift in Sources */,
+				042D0D0FAE879212BD26831CF54A0AE7 /* Node.Scalar.swift in Sources */,
+				0229C14262032742C71E3873F2D97B17 /* Node.Sequence.swift in Sources */,
+				CE189E8F62779BF779C8BDB3AA449C8B /* Node.swift in Sources */,
+				D0D00E65085D8406968975DB436B0764 /* parser.c in Sources */,
+				514DD89A0BC72C92D7878C885457A22E /* Parser.swift in Sources */,
+				15CBB8CB5460BE33AD60FEA79C878EF7 /* reader.c in Sources */,
+				7B713C5B10608FA133867179411EF75B /* Representer.swift in Sources */,
+				46BB311B52CF2F4A75E53B99594BEAE1 /* Resolver.swift in Sources */,
+				4DC27C4E3D9E1612B4E87A573D8F1E6E /* scanner.c in Sources */,
+				F1CCB20417763364C0D900E5520AACB9 /* shim.swift in Sources */,
+				A28A6DA3B6D16431492EAFF0BF59C795 /* String+Yams.swift in Sources */,
+				08F2C5C720CAA49447D91FC70814F160 /* Tag.swift in Sources */,
+				6E4347954E37F5E3231ECB8F6C046810 /* writer.c in Sources */,
+				270705628775823339A283F25C75B29F /* YamlError.swift in Sources */,
+				8BFDEE0B644B8B4FE4CAEB7AF00B6183 /* Yams-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3E969A139462D156233142BA013EC0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EAB86A38CEEEC3281E522BC8EE4FA96 /* Pods-MSCP-MSCPUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE5FFBB6A3D440F13BD7C8A351E05489 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F53DC016105B6B0D740A14D7E69ABB0 /* Pods-MSCP-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3E5488AA2B78F44BE6C7EA544CA472EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-MSCP";
+			target = 2EC70141862184DF6F4A8BF0B7B0FFEE /* Pods-MSCP */;
+			targetProxy = 4C552D7CB9252633E6E9E7F83F5E8AE6 /* PBXContainerItemProxy */;
+		};
+		5A598C86E9D67D75213204F3A2149280 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Yams;
+			target = 7A5852F1D89CE2FE43485C63F48F223A /* Yams */;
+			targetProxy = 17AD84241A57E2A0760AA87069BF62D8 /* PBXContainerItemProxy */;
+		};
+		92C3320395E4A7F7A5C59F1AD9BA7D9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Yams;
+			target = 7A5852F1D89CE2FE43485C63F48F223A /* Yams */;
+			targetProxy = 257626E861BD3609E1C83105A831D827 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0253CCDEE11BB2E876CF8C6EBDC6E1A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		04A6E211967077208810AE9F89E489B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EAACC6E9E2DCDE54118F9D036D5B7A1 /* Pods-MSCP-MSCPUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-MSCP-MSCPUITests/Pods-MSCP-MSCPUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-MSCP-MSCPUITests/Pods-MSCP-MSCPUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0584D56FC32EE543C6C87B7784219C62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F89BE0619179DBB76F005E00DC74C86A /* Yams.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "Target Support Files/Yams/Yams-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Yams/Yams-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/Yams/Yams.modulemap";
+				PRODUCT_MODULE_NAME = Yams;
+				PRODUCT_NAME = Yams;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		407DB667828B3B0AA660902A21D94202 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEF8D719384EE382FB9DB944FD41B5E8 /* Pods-MSCP-MSCPUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-MSCP-MSCPUITests/Pods-MSCP-MSCPUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-MSCP-MSCPUITests/Pods-MSCP-MSCPUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4A0110B071CED0E6EB47C2749FF8F3A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C3B74FFF018839550D602267219BB4A /* Pods-MSCPTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-MSCPTests/Pods-MSCPTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-MSCPTests/Pods-MSCPTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5E85CE5F62072BFF644C102E70E84E8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF8774FDD727C57EE960EB196A5C1024 /* Yams.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "Target Support Files/Yams/Yams-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Yams/Yams-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/Yams/Yams.modulemap";
+				PRODUCT_MODULE_NAME = Yams;
+				PRODUCT_NAME = Yams;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6DC6BBF7D2A721A4E91A75A28EEB8E83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		7C4A669DF588E9DDC21A3EC2CEEA933B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12CD8D36181FA8B3450A71636E0E4467 /* Pods-MSCPTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-MSCPTests/Pods-MSCPTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-MSCPTests/Pods-MSCPTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8D4F3E4F65F8A9CF30AB9D1615D4AD8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11AD7F42FF9F100964C606AB76CB2924 /* Pods-MSCP.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-MSCP/Pods-MSCP-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-MSCP/Pods-MSCP.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D58BD8183480870FD24D6A56B110542D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AFF5B01A8A4F5EA96832FA6D7BBAA69 /* Pods-MSCP.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Target Support Files/Pods-MSCP/Pods-MSCP-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-MSCP/Pods-MSCP.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DC6BBF7D2A721A4E91A75A28EEB8E83 /* Debug */,
+				0253CCDEE11BB2E876CF8C6EBDC6E1A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61384942A8F33554037EF29230164293 /* Build configuration list for PBXNativeTarget "Pods-MSCPTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C4A669DF588E9DDC21A3EC2CEEA933B /* Debug */,
+				4A0110B071CED0E6EB47C2749FF8F3A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7A95BC54B802A07649368CAE9A921AC /* Build configuration list for PBXNativeTarget "Pods-MSCP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D4F3E4F65F8A9CF30AB9D1615D4AD8F /* Debug */,
+				D58BD8183480870FD24D6A56B110542D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE3491EAA04EDC2D8CE2FC9BFCABF02A /* Build configuration list for PBXNativeTarget "Pods-MSCP-MSCPUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				407DB667828B3B0AA660902A21D94202 /* Debug */,
+				04A6E211967077208810AE9F89E489B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D72BBE8E62832B284253280E3C3632F6 /* Build configuration list for PBXNativeTarget "Yams" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0584D56FC32EE543C6C87B7784219C62 /* Debug */,
+				5E85CE5F62072BFF644C102E70E84E8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
