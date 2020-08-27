@@ -14,7 +14,7 @@ class GitHelper {
     
     let kdefaultRepo = "https://github.com/usnistgov/macos_security.git"
     
-
+    
     func getRepo(repo: String?=nil) {
         let myGroup = DispatchGroup()
         myGroup.enter()
@@ -32,6 +32,7 @@ class GitHelper {
     }
     
     func listBranches() -> [String]{
+        
         let task = Process()
         task.executableURL = URL(fileURLWithPath: "/usr/bin/git")
         task.arguments = ["--git-dir=/var/tmp/macos_security/.git", "branch", "-r"]
@@ -40,18 +41,29 @@ class GitHelper {
         let errorPipe = Pipe()
         task.standardOutput = outputPipe
         task.standardError = errorPipe
-        do {
-            try task.run()
-        } catch {
-            print("Error")
+        
+        let myGroup = DispatchGroup()
+        myGroup.enter()
+        DispatchQueue.global().async {
+            do {
+                try task.run()
+                task.waitUntilExit()
+            } catch {
+                print("Error")
+            }
+            
+            myGroup.leave()
         }
+        myGroup.wait()
+        
         let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
         let output = String(decoding: outputData, as: UTF8.self)
         
-        var branches = output.components(separatedBy: "\n")
+        var branches = output.replacingOccurrences(of: "  ", with: "").components(separatedBy: "\n")
         
         branches.removeFirst()
         branches.removeLast()
+        
         return branches
         
     }
@@ -60,7 +72,7 @@ class GitHelper {
         let myGroup = DispatchGroup()
         myGroup.enter()
         DispatchQueue.global().async {
-        
+            
             let task = Process()
             task.executableURL = URL(fileURLWithPath: "/usr/bin/git")
             let branchName = branch.components(separatedBy: "/")[1]
@@ -77,9 +89,9 @@ class GitHelper {
             let taskTwo = Process()
             taskTwo.executableURL = URL(fileURLWithPath: "/usr/bin/git")
             taskTwo.currentDirectoryURL = URL(fileURLWithPath: "/var/tmp/macos_security/")
-
+            
             taskTwo.arguments = ["pull"]
-
+            
             do {
                 try taskTwo.run()
             } catch {
@@ -90,14 +102,10 @@ class GitHelper {
             myGroup.leave()
         }
         myGroup.wait()
-
+        
         
         let newGroup = DispatchGroup()
         newGroup.enter()
-
-        
-         
-      
         
     }
 }

@@ -10,6 +10,7 @@
 		73B0EC2C24EE135C00A947CA /* GitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B0EC2B24EE135C00A947CA /* GitHelper.swift */; };
 		73E9076824F43E4100329193 /* Yams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9076724F43E4100329193 /* Yams.swift */; };
 		73E9076E24F601BE00329193 /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9076D24F601BE00329193 /* CustomTableCell.swift */; };
+		73E9077024F753FD00329193 /* Compliance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9076F24F753FD00329193 /* Compliance.swift */; };
 		73F67CFF24EE0E700088A85C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F67CFE24EE0E700088A85C /* AppDelegate.swift */; };
 		73F67D0124EE0E700088A85C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F67D0024EE0E700088A85C /* ViewController.swift */; };
 		73F67D0324EE0E710088A85C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73F67D0224EE0E710088A85C /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		73B0EC2B24EE135C00A947CA /* GitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHelper.swift; sourceTree = "<group>"; };
 		73E9076724F43E4100329193 /* Yams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yams.swift; sourceTree = "<group>"; };
 		73E9076D24F601BE00329193 /* CustomTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableCell.swift; sourceTree = "<group>"; };
+		73E9076F24F753FD00329193 /* Compliance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compliance.swift; sourceTree = "<group>"; };
 		73F67CFB24EE0E700088A85C /* MSCP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSCP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F67CFE24EE0E700088A85C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73F67D0024EE0E700088A85C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				73F67CFE24EE0E700088A85C /* AppDelegate.swift */,
+				73E9076F24F753FD00329193 /* Compliance.swift */,
 				73B0EC2B24EE135C00A947CA /* GitHelper.swift */,
 				73E9076724F43E4100329193 /* Yams.swift */,
 				73F67D0024EE0E700088A85C /* ViewController.swift */,
@@ -415,6 +418,7 @@
 				73E9076E24F601BE00329193 /* CustomTableCell.swift in Sources */,
 				73F67D0124EE0E700088A85C /* ViewController.swift in Sources */,
 				73F67CFF24EE0E700088A85C /* AppDelegate.swift in Sources */,
+				73E9077024F753FD00329193 /* Compliance.swift in Sources */,
 				73E9076824F43E4100329193 /* Yams.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,15 +13,19 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     @IBOutlet weak var branchSelect: NSPopUpButton!
     @IBOutlet weak var baselineSelect: NSPopUpButton!
     @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var complianceButton: NSButtonCell!
     
     var ruleURLs = [URL]()
+    var rulesStatus = [[String: Int]]()
     
     override func viewDidAppear() {
         if !FileManager.default.fileExists(atPath: defaultLocalRepoPath) {
             GitHelper().getRepo()
         }
         let branchList = GitHelper().listBranches()
+        getDir()
         loadBranchSelector(branches: branchList)
+        branchSelect.selectItem(withTitle: "origin/master")
     }
     
     override func viewDidLoad() {
@@ -38,6 +42,8 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         for branch in branches {
             branchSelect.addItem(withTitle: branch)
         }
+        getDir()
+        tableView.reloadData()
     }
     
     func loadBaselines() {
@@ -55,31 +61,25 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?{
-//        if let selectedBaseline =  baselineSelect.titleOfSelectedItem {
-//            let baselineRules = baselines().readBaseline(baseline: selectedBaseline)
-//
-//
-//        }
-        
-        if tableColumn?.identifier.rawValue == "checkbox" {
-            guard let checkboxCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "checkCell"), owner: self) as? CustomTableCell else { return nil }
-            checkboxCell.checkBox.integerValue = 0
-            if let ruleName = ruleURLs[row].absoluteString.components(separatedBy: "/").last?.components(separatedBy: ".")[0] {
-                checkboxCell.checkBox.title = ruleName
+        if let selectedBaseline =  baselineSelect.titleOfSelectedItem {
+            let baselineRules = baselines().readBaseline(baseline: selectedBaseline)
+            if tableColumn?.identifier.rawValue == "checkbox" {
+                guard let checkboxCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "checkCell"), owner: self) as? CustomTableCell else { return nil }
                 
+                if let ruleName = ruleURLs[row].absoluteString.components(separatedBy: "/").last?.components(separatedBy: ".")[0] {
+                    if baselineRules.contains(ruleName) {
+                        checkboxCell.checkBox.integerValue = 1
+                    } else {
+                        checkboxCell.checkBox.integerValue = 0
+                    }
+                    checkboxCell.checkBox.title = ruleName
+                    rulesStatus.append([ruleName:checkboxCell.checkBox.integerValue])
+                }
+                return checkboxCell
             }
-            return checkboxCell
+            
         }
         
-//        if tableColumn?.identifier.rawValue == "rule_id" {
-//            guard let ruleIDCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ruleIDCell"), owner: self) as? NSTableCellView else { return nil }
-//            if let ruleName = ruleURLs[row].absoluteString.components(separatedBy: "/").last?.components(separatedBy: ".")[0] {
-//                ruleIDCell.textField?.stringValue = ruleName
-//
-//            }
-//            return ruleIDCell
-//        }
-
         return nil
     }
     
@@ -96,6 +96,8 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         if let selectedItem = branchSelect.titleOfSelectedItem {
             GitHelper().getBranch(branch: selectedItem)
             loadBaselines()
+            getDir()
+            tableView.reloadData()
         }
         
         
@@ -106,13 +108,26 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         if baselineSelect.titleOfSelectedItem == "" {
             return
         }
-        if let selectedBaseline =  baselineSelect.titleOfSelectedItem {
-            baselines().readBaseline(baseline: selectedBaseline)
-            getDir()
-            tableView.reloadData()
-        }
+        getDir()
+        tableView.reloadData()
     }
     
+
+    @IBAction func complianceReport(_ sender: Any) {
+        for rule in rulesStatus {
+            for (key, value) in rule {
+                for ruleURL in ruleURLs {
+                    if ruleURL.absoluteString.contains(key) && value == 1{
+                        rules().readRules(ruleURL: ruleURL)
+                    }
+                }
+            }
+            
+        }
+
+    }
+    
+
     func getDir() {
         ruleURLs.removeAll()
         

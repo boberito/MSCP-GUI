@@ -10,17 +10,15 @@ import Foundation
 import Yams
 
 struct baselineYaml: Decodable {
-
-        let title: String
-        let description: String
-        
-        let profile: [profile]
-        struct profile: Decodable {
-            let section: String
-            let rules: [String]
-        }
-        
     
+    let title: String
+    let description: String
+    
+    let profile: [profile]
+    struct profile: Decodable {
+        let section: String
+        let rules: [String]
+    }
 }
 
 struct ruleYaml: Decodable {
@@ -29,25 +27,10 @@ struct ruleYaml: Decodable {
     let check: String
     let result: [String:String]
     let fix: String
-    let references: references
+    let references: [String:[String]]
     let macOS: String
     let tags: [String]
     let mobileconfig: Bool
-    
-    struct references: Decodable {
-        let cce: String
-        let cci: String
-        let nist80053r4: [String]
-        let srg: [String]
-        let disa_stig: [String]
-        
-        private enum CodingKeys: String, CodingKey {
-            case cce, cci, srg, disa_stig,
-            nist80053r4 = "800-53r4"
-        }
-    }
-        
-    
 }
 
 class baselines {
@@ -63,10 +46,21 @@ class baselines {
                 }
             }
             
-            } else {
-                //other things
-            }
-            
+        } else {
+            //other things
+        }
+        
         return ruleList
     }
+}
+
+class rules {
+    func readRules(ruleURL: URL) {
+        let decoder = YAMLDecoder()
+        if let ruleFile = try? String(contentsOf: ruleURL),
+            let decodedYamlRule = try? decoder.decode(ruleYaml.self, from: ruleFile) {
+                print(decodedYamlRule.title)
+        }
+    }
+    
 }
