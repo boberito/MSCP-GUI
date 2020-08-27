@@ -51,14 +51,15 @@ struct ruleYaml: Decodable {
 }
 
 class baselines {
-    func readBaseline(baseline: String) {
+    func readBaseline(baseline: String) -> [String] {
         let fullURLString = defaultLocalRepoPath + "/baselines/" + baseline
         let decoder = YAMLDecoder()
+        var ruleList = [String]()
         if let baselineYam = try? String(contentsOfFile: fullURLString),
             let decodedYamlBaseline = try? decoder.decode(baselineYaml.self, from: baselineYam) {
             for section in decodedYamlBaseline.profile {
                 for rule in section.rules {
-                    print(rule)
+                    ruleList.append(rule)
                 }
             }
             
@@ -66,6 +67,6 @@ class baselines {
                 //other things
             }
             
-        
+        return ruleList
     }
 }
