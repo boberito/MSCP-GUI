@@ -23,18 +23,38 @@ struct baselineYaml: Decodable {
 }
 
 //structure of the rule yaml
+//struct ruleYaml: Decodable {
+//    let id: String
+//    let title: String
+//    let check: String
+//    let result: [String:String]
+//    let fix: String
+//    let references: [String:[String]]
+//    let macOS: String
+//    let tags: [String]
+//    let mobileconfig: Bool
+//}
+
 struct ruleYaml: Decodable {
-    let id: String
-    let title: String
-    let check: String
-    let result: [String:String]
-    let fix: String
-    let references: [String:[String]]
-    let macOS: String
-    let tags: [String]
-    let mobileconfig: Bool
+let id: String
+let title: String
+let result: [String:String]?
+let discussion: String
+let check: String
+let fix: String
+let references: [String:[String]]
+let macOS: [String]
+let tags: [String]
+let mobileconfig: Bool?
+//let mobileconfigInfo: MobileConfigDomain?
+var finding: Bool?
+
+enum CodingKeys: String, CodingKey {
+    case id, title, result, discussion, check, fix, references, macOS, tags, mobileconfig
+//    case mobileconfigInfo = "mobileconfig_info"
 }
 
+}
 
 //baselines - method to read the baseline Yam
 class baselines {
