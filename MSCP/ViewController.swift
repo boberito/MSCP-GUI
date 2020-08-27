@@ -19,6 +19,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     //keep track if the rule is clicked or not
     var ruleURLs = [URL]()
     var rulesStatus = [[String: Int]]()
+    var yamlRule = rules()
     
     //load up git stuff as the UI loads
     override func viewDidAppear() {
@@ -136,7 +137,12 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
             for (key, value) in rule {
                 for ruleURL in ruleURLs {
                     if ruleURL.absoluteString.contains(key) && value == 1{
-                        rules().readRules(ruleURL: ruleURL)
+                        yamlRule.readRules(ruleURL: ruleURL)
+                        if yamlRule.tags.contains("manual") || yamlRule.tags.contains("inherent") || yamlRule.tags.contains("permanent") || yamlRule.tags.contains("n_a"){
+                            continue
+                        }
+                        print(yamlRule.id)
+                        print(compliance().checkCompliance(arguments: yamlRule.check, resultExpected: yamlRule.result) as Any)
                     }
                 }
             }

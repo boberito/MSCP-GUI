@@ -9,7 +9,7 @@
 import Foundation
 
 class compliance {
-    func checkCompliance(arguments: String, resultExpected: String) -> Bool? {
+    func checkCompliance(arguments: String, resultExpected: [String:String]) -> Bool? {
         if arguments.first != "/" {
             return nil
         }
@@ -27,13 +27,15 @@ class compliance {
         let data = outpipe.fileHandleForReading.readDataToEndOfFile()
         
         if let resultString = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .newlines){
-            return resultString == resultExpected
+            for (_, value) in resultExpected {
+                return resultString == value
+            }
+            
         }
         return nil
     }
+        func fixCompliance() {
+            
+        }
     
-    func fixCompliance() {
-        
-    }
 }
-

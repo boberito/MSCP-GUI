@@ -22,38 +22,26 @@ struct baselineYaml: Decodable {
     }
 }
 
-//structure of the rule yaml
-//struct ruleYaml: Decodable {
-//    let id: String
-//    let title: String
-//    let check: String
-//    let result: [String:String]
-//    let fix: String
-//    let references: [String:[String]]
-//    let macOS: String
-//    let tags: [String]
-//    let mobileconfig: Bool
-//}
 
 struct ruleYaml: Decodable {
-let id: String
-let title: String
-let result: [String:String]?
-let discussion: String
-let check: String
-let fix: String
-let references: [String:[String]]
-let macOS: [String]
-let tags: [String]
-let mobileconfig: Bool?
-//let mobileconfigInfo: MobileConfigDomain?
-var finding: Bool?
-
-enum CodingKeys: String, CodingKey {
-    case id, title, result, discussion, check, fix, references, macOS, tags, mobileconfig
-//    case mobileconfigInfo = "mobileconfig_info"
-}
-
+    let id: String
+    let title: String
+    let result: [String:String]?
+    let discussion: String
+    let check: String
+    let fix: String
+    let references: [String:[String]]
+    let macOS: [String]
+    let tags: [String]
+    let mobileconfig: Bool?
+    //let mobileconfigInfo: MobileConfigDomain?
+    var finding: Bool?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, title, result, discussion, check, fix, references, macOS, tags, mobileconfig
+        //    case mobileconfigInfo = "mobileconfig_info"
+    }
+    
 }
 
 //baselines - method to read the baseline Yam
@@ -81,12 +69,30 @@ class baselines {
 
 //rules class - method to read the rules
 class rules {
-    func readRules(ruleURL: URL) {
+    var id = String()
+    var title = String()
+    var discussion = String()
+    var check = String()
+    var result = [String:String]()
+    var references = [String:[String]]()
+    var tags = [String]()
+    var mobileConfig = Bool()
+    func readRules(ruleURL: URL){
         let decoder = YAMLDecoder()
         if let ruleFile = try? String(contentsOf: ruleURL),
             let decodedYamlRule = try? decoder.decode(ruleYaml.self, from: ruleFile) {
-                print(decodedYamlRule.title)
+            id = decodedYamlRule.id
+            title = decodedYamlRule.title
+            discussion = decodedYamlRule.discussion
+            check = decodedYamlRule.check
+            if let decodedResult = decodedYamlRule.result {
+                    result = decodedResult
+            }
+            references = decodedYamlRule.references
+            tags = decodedYamlRule.tags
+            mobileConfig = decodedYamlRule.mobileconfig ?? false
         }
+        
     }
     
 }
