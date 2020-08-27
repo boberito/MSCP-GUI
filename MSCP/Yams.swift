@@ -9,6 +9,7 @@
 import Foundation
 import Yams
 
+//structure of the baseline yaml
 struct baselineYaml: Decodable {
     
     let title: String
@@ -21,6 +22,7 @@ struct baselineYaml: Decodable {
     }
 }
 
+//structure of the rule yaml
 struct ruleYaml: Decodable {
     let id: String
     let title: String
@@ -33,6 +35,8 @@ struct ruleYaml: Decodable {
     let mobileconfig: Bool
 }
 
+
+//baselines - method to read the baseline Yam
 class baselines {
     func readBaseline(baseline: String) -> [String] {
         let fullURLString = defaultLocalRepoPath + "/baselines/" + baseline
@@ -54,6 +58,8 @@ class baselines {
     }
 }
 
+
+//rules class - method to read the rules
 class rules {
     func readRules(ruleURL: URL) {
         let decoder = YAMLDecoder()

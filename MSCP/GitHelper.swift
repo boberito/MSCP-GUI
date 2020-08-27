@@ -10,11 +10,12 @@ import Foundation
 
 let defaultLocalRepoPath = "/var/tmp/macos_security"
 
+// git HelperClass
+// method for getting the repo
+// method for do a git branch
 class GitHelper {
     
     let kdefaultRepo = "https://github.com/usnistgov/macos_security.git"
-    
-    
     func getRepo(repo: String?=nil) {
         let myGroup = DispatchGroup()
         myGroup.enter()
@@ -30,7 +31,7 @@ class GitHelper {
         myGroup.wait()
         
     }
-    
+    //just grab report branches
     func listBranches() -> [String]{
         
         let task = Process()
@@ -60,14 +61,15 @@ class GitHelper {
         let output = String(decoding: outputData, as: UTF8.self)
         
         var branches = output.replacingOccurrences(of: "  ", with: "").components(separatedBy: "\n")
-        
+    
         branches.removeFirst()
         branches.removeLast()
         
         return branches
         
     }
-    
+    //check out the branch
+    //do a pull so we have the files
     func getBranch(branch: String) {
         let myGroup = DispatchGroup()
         myGroup.enter()

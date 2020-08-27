@@ -15,13 +15,20 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var complianceButton: NSButtonCell!
     
+    //keep track of all the rule paths
+    //keep track if the rule is clicked or not
     var ruleURLs = [URL]()
     var rulesStatus = [[String: Int]]()
     
+    //load up git stuff as the UI loads
     override func viewDidAppear() {
+        
+        //download the repo if it doesn't exist
         if !FileManager.default.fileExists(atPath: defaultLocalRepoPath) {
             GitHelper().getRepo()
         }
+        
+        //list the branches and load the menus
         let branchList = GitHelper().listBranches()
         getDir()
         loadBranchSelector(branches: branchList)
@@ -33,11 +40,14 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        
+        //reload the table with the data
         getDir()
         tableView.reloadData()
         
     }
     
+    //fills in the branch drop down
     func loadBranchSelector(branches: [String]) {
         for branch in branches {
             branchSelect.addItem(withTitle: branch)
@@ -46,6 +56,8 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         tableView.reloadData()
     }
     
+    
+    //fills Baseline dropdown
     func loadBaselines() {
         let fm = FileManager.default
         let baselinesPath = defaultLocalRepoPath + "/baselines"
@@ -60,12 +72,15 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         }
     }
     
+    //load table data
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?{
+        //if a baseline is selected, get the rules for it
         if let selectedBaseline =  baselineSelect.titleOfSelectedItem {
             let baselineRules = baselines().readBaseline(baseline: selectedBaseline)
-            if tableColumn?.identifier.rawValue == "checkbox" {
+
                 guard let checkboxCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "checkCell"), owner: self) as? CustomTableCell else { return nil }
                 
+            //if the rule in the baseline matches one in URL list, check it
                 if let ruleName = ruleURLs[row].absoluteString.components(separatedBy: "/").last?.components(separatedBy: ".")[0] {
                     if baselineRules.contains(ruleName) {
                         checkboxCell.checkBox.integerValue = 1
@@ -73,8 +88,9 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                         checkboxCell.checkBox.integerValue = 0
                     }
                     checkboxCell.checkBox.title = ruleName
+                    //make note of its status
                     rulesStatus.append([ruleName:checkboxCell.checkBox.integerValue])
-                }
+
                 return checkboxCell
             }
             
@@ -87,6 +103,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         return ruleURLs.count
     }
     
+    //if a branch is selected, load the baselines
     @IBAction func branchSelect(_ sender: NSPopUpButton) {
         if branchSelect.titleOfSelectedItem == "" {
             return
@@ -104,15 +121,16 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         
     }
     
+    //baseline selected, reload the table data
     @IBAction func baselineSelect(_ sender: Any) {
         if baselineSelect.titleOfSelectedItem == "" {
             return
         }
-        getDir()
         tableView.reloadData()
     }
     
 
+    // run a compliance report on all the rules selected
     @IBAction func complianceReport(_ sender: Any) {
         for rule in rulesStatus {
             for (key, value) in rule {
@@ -128,6 +146,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     }
     
 
+    // get all the rules in the rules directory and sub directories
     func getDir() {
         ruleURLs.removeAll()
         
