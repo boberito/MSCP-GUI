@@ -34,5 +34,10 @@
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
+	<key>SMPrivilegedExecutables</key>
+	<dict>
+		<key>com.truetalentinc.MSCP.Helper</key>
+		<string>identifier "com.truetalentinc.MSCP.Helper" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: Bob Gendler (KRH8X2UT7Y)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+	</dict>
 </dict>
 </plist>

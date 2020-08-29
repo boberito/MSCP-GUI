@@ -11,6 +11,25 @@
 		73E9076824F43E4100329193 /* Yams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9076724F43E4100329193 /* Yams.swift */; };
 		73E9076E24F601BE00329193 /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9076D24F601BE00329193 /* CustomTableCell.swift */; };
 		73E9077024F753FD00329193 /* Compliance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9076F24F753FD00329193 /* Compliance.swift */; };
+		73E9077224F9FAA600329193 /* Result+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9077124F9FAA600329193 /* Result+Extension.swift */; };
+		73E9077624F9FAB500329193 /* MSCPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9077324F9FAB500329193 /* MSCPError.swift */; };
+		73E9077724F9FAB500329193 /* HelperRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9077424F9FAB500329193 /* HelperRemote.swift */; };
+		73E9077824F9FAB500329193 /* ExecutionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9077524F9FAB500329193 /* ExecutionService.swift */; };
+		73E9078024F9FAE000329193 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9077F24F9FAE000329193 /* main.swift */; };
+		73E9078C24F9FB2900329193 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9078424F9FB2900329193 /* HelperProtocol.swift */; };
+		73E9078D24F9FB2900329193 /* HelperConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9078524F9FB2900329193 /* HelperConstants.swift */; };
+		73E9078F24F9FB2900329193 /* Launchd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73E9078724F9FB2900329193 /* Launchd.plist */; };
+		73E9079024F9FB2900329193 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73E9078824F9FB2900329193 /* Info.plist */; };
+		73E9079224F9FB2900329193 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9078A24F9FB2900329193 /* Helper.swift */; };
+		73E9079324F9FB2900329193 /* RemoteApplicationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9078B24F9FB2900329193 /* RemoteApplicationProtocol.swift */; };
+		73E9079424F9FBAD00329193 /* Result+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9077124F9FAA600329193 /* Result+Extension.swift */; };
+		73E9079524F9FBEE00329193 /* MSCPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9077324F9FAB500329193 /* MSCPError.swift */; };
+		73E9079624F9FC1500329193 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9078A24F9FB2900329193 /* Helper.swift */; };
+		73E9079724F9FC1A00329193 /* ExecutionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9078924F9FB2900329193 /* ExecutionService.swift */; };
+		73E9079824F9FC2700329193 /* HelperConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9078524F9FB2900329193 /* HelperConstants.swift */; };
+		73E9079924F9FC2D00329193 /* RemoteApplicationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9078B24F9FB2900329193 /* RemoteApplicationProtocol.swift */; };
+		73E9079A24F9FC3300329193 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9078424F9FB2900329193 /* HelperProtocol.swift */; };
+		73E9079B24F9FC7F00329193 /* com.truetalentinc.MSCP.Helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73E9077D24F9FAE000329193 /* com.truetalentinc.MSCP.Helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		73F67CFF24EE0E700088A85C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F67CFE24EE0E700088A85C /* AppDelegate.swift */; };
 		73F67D0124EE0E700088A85C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F67D0024EE0E700088A85C /* ViewController.swift */; };
 		73F67D0324EE0E710088A85C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73F67D0224EE0E710088A85C /* Assets.xcassets */; };
@@ -39,6 +58,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		73E9077B24F9FAE000329193 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = MSCP.app/Contents/Library/LaunchServices;
+			dstSubfolderSpec = 16;
+			files = (
+				73E9079B24F9FC7F00329193 /* com.truetalentinc.MSCP.Helper in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		06998FF34FFF61A9CBF309DB /* Pods-MSCPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSCPTests.debug.xcconfig"; path = "Target Support Files/Pods-MSCPTests/Pods-MSCPTests.debug.xcconfig"; sourceTree = "<group>"; };
 		49A835CBACC94851B617C514 /* Pods-MSCPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSCPTests.release.xcconfig"; path = "Target Support Files/Pods-MSCPTests/Pods-MSCPTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -46,6 +78,19 @@
 		73E9076724F43E4100329193 /* Yams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yams.swift; sourceTree = "<group>"; };
 		73E9076D24F601BE00329193 /* CustomTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableCell.swift; sourceTree = "<group>"; };
 		73E9076F24F753FD00329193 /* Compliance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compliance.swift; sourceTree = "<group>"; };
+		73E9077124F9FAA600329193 /* Result+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+Extension.swift"; sourceTree = "<group>"; };
+		73E9077324F9FAB500329193 /* MSCPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSCPError.swift; sourceTree = "<group>"; };
+		73E9077424F9FAB500329193 /* HelperRemote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperRemote.swift; sourceTree = "<group>"; };
+		73E9077524F9FAB500329193 /* ExecutionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExecutionService.swift; sourceTree = "<group>"; };
+		73E9077D24F9FAE000329193 /* com.truetalentinc.MSCP.Helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = com.truetalentinc.MSCP.Helper; sourceTree = BUILT_PRODUCTS_DIR; };
+		73E9077F24F9FAE000329193 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		73E9078424F9FB2900329193 /* HelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperProtocol.swift; sourceTree = "<group>"; };
+		73E9078524F9FB2900329193 /* HelperConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperConstants.swift; sourceTree = "<group>"; };
+		73E9078724F9FB2900329193 /* Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Launchd.plist; sourceTree = "<group>"; };
+		73E9078824F9FB2900329193 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73E9078924F9FB2900329193 /* ExecutionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExecutionService.swift; sourceTree = "<group>"; };
+		73E9078A24F9FB2900329193 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		73E9078B24F9FB2900329193 /* RemoteApplicationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteApplicationProtocol.swift; sourceTree = "<group>"; };
 		73F67CFB24EE0E700088A85C /* MSCP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSCP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F67CFE24EE0E700088A85C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73F67D0024EE0E700088A85C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +114,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		73E9077A24F9FAE000329193 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73F67CF824EE0E700088A85C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -119,12 +171,28 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		73E9077E24F9FAE000329193 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				73E9078924F9FB2900329193 /* ExecutionService.swift */,
+				73E9078A24F9FB2900329193 /* Helper.swift */,
+				73E9078524F9FB2900329193 /* HelperConstants.swift */,
+				73E9078424F9FB2900329193 /* HelperProtocol.swift */,
+				73E9078824F9FB2900329193 /* Info.plist */,
+				73E9078724F9FB2900329193 /* Launchd.plist */,
+				73E9078B24F9FB2900329193 /* RemoteApplicationProtocol.swift */,
+				73E9077F24F9FAE000329193 /* main.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		73F67CF224EE0E700088A85C = {
 			isa = PBXGroup;
 			children = (
 				73F67CFD24EE0E700088A85C /* MSCP */,
 				73F67D1024EE0E710088A85C /* MSCPTests */,
 				73F67D1B24EE0E710088A85C /* MSCPUITests */,
+				73E9077E24F9FAE000329193 /* Helper */,
 				73F67CFC24EE0E700088A85C /* Products */,
 				6F0962A596257C99FE8FDB30 /* Pods */,
 				48942600A2CDFB15C218D8C0 /* Frameworks */,
@@ -137,6 +205,7 @@
 				73F67CFB24EE0E700088A85C /* MSCP.app */,
 				73F67D0D24EE0E710088A85C /* MSCPTests.xctest */,
 				73F67D1824EE0E710088A85C /* MSCPUITests.xctest */,
+				73E9077D24F9FAE000329193 /* com.truetalentinc.MSCP.Helper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,6 +217,10 @@
 				73E9076F24F753FD00329193 /* Compliance.swift */,
 				73B0EC2B24EE135C00A947CA /* GitHelper.swift */,
 				73E9076724F43E4100329193 /* Yams.swift */,
+				73E9077524F9FAB500329193 /* ExecutionService.swift */,
+				73E9077424F9FAB500329193 /* HelperRemote.swift */,
+				73E9077324F9FAB500329193 /* MSCPError.swift */,
+				73E9077124F9FAA600329193 /* Result+Extension.swift */,
 				73F67D0024EE0E700088A85C /* ViewController.swift */,
 				73F67D0224EE0E710088A85C /* Assets.xcassets */,
 				73F67D0424EE0E710088A85C /* Main.storyboard */,
@@ -179,6 +252,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		73E9077C24F9FAE000329193 /* com.truetalentinc.MSCP.Helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73E9078124F9FAE000329193 /* Build configuration list for PBXNativeTarget "com.truetalentinc.MSCP.Helper" */;
+			buildPhases = (
+				73E9077924F9FAE000329193 /* Sources */,
+				73E9077A24F9FAE000329193 /* Frameworks */,
+				73E9077B24F9FAE000329193 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = com.truetalentinc.MSCP.Helper;
+			productName = helper;
+			productReference = 73E9077D24F9FAE000329193 /* com.truetalentinc.MSCP.Helper */;
+			productType = "com.apple.product-type.tool";
+		};
 		73F67CFA24EE0E700088A85C /* MSCP */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73F67D2124EE0E710088A85C /* Build configuration list for PBXNativeTarget "MSCP" */;
@@ -247,6 +337,9 @@
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Bob Gendler";
 				TargetAttributes = {
+					73E9077C24F9FAE000329193 = {
+						CreatedOnToolsVersion = 11.6;
+					};
 					73F67CFA24EE0E700088A85C = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -276,6 +369,7 @@
 				73F67CFA24EE0E700088A85C /* MSCP */,
 				73F67D0C24EE0E710088A85C /* MSCPTests */,
 				73F67D1724EE0E710088A85C /* MSCPUITests */,
+				73E9077C24F9FAE000329193 /* com.truetalentinc.MSCP.Helper */,
 			);
 		};
 /* End PBXProject section */
@@ -285,6 +379,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73E9079024F9FB2900329193 /* Info.plist in Resources */,
+				73E9078F24F9FB2900329193 /* Launchd.plist in Resources */,
 				73F67D0324EE0E710088A85C /* Assets.xcassets in Resources */,
 				73F67D0624EE0E710088A85C /* Main.storyboard in Resources */,
 			);
@@ -410,16 +506,39 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		73E9077924F9FAE000329193 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73E9079524F9FBEE00329193 /* MSCPError.swift in Sources */,
+				73E9079A24F9FC3300329193 /* HelperProtocol.swift in Sources */,
+				73E9079824F9FC2700329193 /* HelperConstants.swift in Sources */,
+				73E9079924F9FC2D00329193 /* RemoteApplicationProtocol.swift in Sources */,
+				73E9079424F9FBAD00329193 /* Result+Extension.swift in Sources */,
+				73E9078024F9FAE000329193 /* main.swift in Sources */,
+				73E9079724F9FC1A00329193 /* ExecutionService.swift in Sources */,
+				73E9079624F9FC1500329193 /* Helper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73F67CF724EE0E700088A85C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73E9078C24F9FB2900329193 /* HelperProtocol.swift in Sources */,
+				73E9079224F9FB2900329193 /* Helper.swift in Sources */,
+				73E9078D24F9FB2900329193 /* HelperConstants.swift in Sources */,
 				73B0EC2C24EE135C00A947CA /* GitHelper.swift in Sources */,
 				73E9076E24F601BE00329193 /* CustomTableCell.swift in Sources */,
+				73E9077624F9FAB500329193 /* MSCPError.swift in Sources */,
 				73F67D0124EE0E700088A85C /* ViewController.swift in Sources */,
 				73F67CFF24EE0E700088A85C /* AppDelegate.swift in Sources */,
+				73E9077724F9FAB500329193 /* HelperRemote.swift in Sources */,
 				73E9077024F753FD00329193 /* Compliance.swift in Sources */,
+				73E9079324F9FB2900329193 /* RemoteApplicationProtocol.swift in Sources */,
 				73E9076824F43E4100329193 /* Yams.swift in Sources */,
+				73E9077824F9FAB500329193 /* ExecutionService.swift in Sources */,
+				73E9077224F9FAA600329193 /* Result+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +585,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		73E9078224F9FAE000329193 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2WUMX954UB;
+				ENABLE_HARDENED_RUNTIME = YES;
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"\"$(SRCROOT)/Helper/Info.plist\"",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					"\"$(SRCROOT)/Helper/Launchd.plist\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		73E9078324F9FAE000329193 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2WUMX954UB;
+				ENABLE_HARDENED_RUNTIME = YES;
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"\"$(SRCROOT)/Helper/Info.plist\"",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					"\"$(SRCROOT)/Helper/Launchd.plist\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		73F67D1F24EE0E710088A85C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -585,6 +748,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MSCP/MSCP.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 2WUMX954UB;
@@ -606,6 +770,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MSCP/MSCP.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 2WUMX954UB;
@@ -712,6 +877,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		73E9078124F9FAE000329193 /* Build configuration list for PBXNativeTarget "com.truetalentinc.MSCP.Helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73E9078224F9FAE000329193 /* Debug */,
+				73E9078324F9FAE000329193 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		73F67CF624EE0E700088A85C /* Build configuration list for PBXProject "MSCP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -77,6 +77,7 @@ class rules {
     var references = [String:[String]]()
     var tags = [String]()
     var mobileConfig = Bool()
+    
     func readRules(ruleURL: URL){
         let decoder = YAMLDecoder()
         if let ruleFile = try? String(contentsOf: ruleURL),

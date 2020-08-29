@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import os
 
 class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
     
@@ -133,6 +134,12 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 
     // run a compliance report on all the rules selected
     @IBAction func complianceReport(_ sender: Any) {
+        
+        let file = "/tmp/mscp.log"
+        let fileURL = URL(fileURLWithPath: file)
+
+        var text = "I am a log message!\n"
+        
         for rule in rulesStatus {
             for (key, value) in rule {
                 for ruleURL in ruleURLs {
@@ -141,14 +148,24 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                         if yamlRule.tags.contains("manual") || yamlRule.tags.contains("inherent") || yamlRule.tags.contains("permanent") || yamlRule.tags.contains("n_a"){
                             continue
                         }
-                        print(yamlRule.id)
-                        print(compliance().checkCompliance(arguments: yamlRule.check, resultExpected: yamlRule.result) as Any)
+                        if let result = compliance().checkCompliance(arguments: yamlRule.check, resultExpected: yamlRule.result) {
+                            text = text + "\(yamlRule.id): \(result)\n"
+                            
+//                            os_log("What is %{public}@?", "threeve")
+                        } else {
+                            text = text + "no loggy"
+                        }
+                        
+                        
                     }
                 }
             }
             
         }
-
+        
+            try? text.write(to: fileURL, atomically: false, encoding: .utf8)
+        
+        
     }
     
 
