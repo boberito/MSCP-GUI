@@ -9,7 +9,19 @@
 import Cocoa
 import os
 
-class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, complianceDelegate {
+    func didRecieveDataUpdate(result: Result<String, Error>, expected: String, ruleID: String) {
+        switch result {
+           case .success(let output):
+            compareResult(resultsCompared: output == expected, resultID: ruleID)
+
+           case .failure(let error):
+            print(error.localizedDescription)
+
+       }
+    }
+
+    var compliance = complianceClass()
     
     @IBOutlet weak var branchSelect: NSPopUpButton!
     @IBOutlet weak var baselineSelect: NSPopUpButton!
@@ -42,6 +54,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        compliance.delegate = self
         
         //reload the table with the data
         getDir()
@@ -134,12 +147,6 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
 
     // run a compliance report on all the rules selected
     @IBAction func complianceReport(_ sender: Any) {
-        
-        let file = "/tmp/mscp.log"
-        let fileURL = URL(fileURLWithPath: file)
-
-        var text = "I am a log message!\n"
-        
         for rule in rulesStatus {
             for (key, value) in rule {
                 for ruleURL in ruleURLs {
@@ -148,24 +155,13 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                         if yamlRule.tags.contains("manual") || yamlRule.tags.contains("inherent") || yamlRule.tags.contains("permanent") || yamlRule.tags.contains("n_a"){
                             continue
                         }
-                        if let result = compliance().checkCompliance(arguments: yamlRule.check, resultExpected: yamlRule.result) {
-                            text = text + "\(yamlRule.id): \(result)\n"
-                            
-//                            os_log("What is %{public}@?", "threeve")
-                        } else {
-                            text = text + "no loggy"
-                        }
-                        
-                        
+                        compliance.checkCompliance(arguments: yamlRule.check, resultExpected: yamlRule.result, ruleID: yamlRule.id)
                     }
                 }
             }
             
         }
-        
-            try? text.write(to: fileURL, atomically: false, encoding: .utf8)
-        
-        
+   
     }
     
 
@@ -189,6 +185,10 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
             }
             
         }
+        
+    }
+    
+    func compareResult(resultsCompared: Bool, resultID: String){
         
     }
 }

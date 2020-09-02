@@ -2,6 +2,42 @@
   "object": {
     "pins": [
       {
+        "package": "Cassowary",
+        "repositoryURL": "https://github.com/tribalworldwidelondon/CassowarySwift.git",
+        "state": {
+          "branch": null,
+          "revision": "7de8fee8331ad13eabb8de639fab0fde7a8f0d77",
+          "version": "2.0.1"
+        }
+      },
+      {
+        "package": "CwlCatchException",
+        "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
+        "state": {
+          "branch": null,
+          "revision": "7cd2f8cacc4d22f21bc0b2309c3b18acf7957b66",
+          "version": "1.2.0"
+        }
+      },
+      {
+        "package": "CwlPreconditionTesting",
+        "repositoryURL": "https://github.com/mattgallagher/CwlPreconditionTesting.git",
+        "state": {
+          "branch": null,
+          "revision": "c228db5d2ad1b01ebc84435e823e6cca4e3db98b",
+          "version": "1.2.0"
+        }
+      },
+      {
+        "package": "PDFAuthor",
+        "repositoryURL": "https://github.com/tribalworldwidelondon/PDFAuthor",
+        "state": {
+          "branch": null,
+          "revision": "b94d61fdd8321f6377269c915f50176faba88838",
+          "version": "0.1.9"
+        }
+      },
+      {
         "package": "Yams",
         "repositoryURL": "https://github.com/jpsim/Yams.git",
         "state": {

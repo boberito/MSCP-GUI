@@ -8,48 +8,34 @@
 
 import Foundation
 
-class compliance {
+protocol complianceDelegate: class {
+    func didRecieveDataUpdate(result: Result<String, Error>, expected: String, ruleID: String)
+}
+
+class complianceClass {
     var completedResult = String()
+    var delegate: complianceDelegate?
     
-    func checkCompliance(arguments: String, resultExpected: [String:String]) -> Bool? {
+    func checkCompliance(arguments: String, resultExpected: [String: String], ruleID: String) {
+        
         if arguments.first != "/" {
-            return nil
+            return
         }
-        //
-        //        let task = Process()
-        //        task.launchPath = "/bin/bash"
-        //        task.arguments = ["-c", arguments.replacingOccurrences(of: "$CURRENT_USER", with: NSUserName())]
-        //        let outpipe = Pipe()
-        //        let errorPipe = Pipe()
-        //        task.standardOutput = outpipe
-        //        task.standardError = errorPipe
-        //        task.launch()
-        //        task.waitUntilExit()
-        DispatchQueue.global().async {
-//        DispatchQueue.main.async {
             do {
                 try ExecutionService.executeScript(at: arguments){ [weak self] result in
-                    switch result {
-                        
-                    case .success(let output):
-                        self?.completedResult = output
-                        
-                    case .failure(let error):
-                        self?.completedResult = error.localizedDescription
+                    DispatchQueue.main.async {
+                        for (_, value) in resultExpected {
+                            self?.delegate?.didRecieveDataUpdate(result: result, expected: value, ruleID: ruleID)
+                        }
+
                     }
-                    
                 }
             } catch {
                 print("error")
                 
             }
-        }
-        for (_, value) in resultExpected {
-            
-            return value == completedResult
-        }
-        
-        return nil
+
+        return
         
     }
     

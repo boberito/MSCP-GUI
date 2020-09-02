@@ -31,6 +31,8 @@
 		73E9079924F9FC2D00329193 /* RemoteApplicationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9078B24F9FB2900329193 /* RemoteApplicationProtocol.swift */; };
 		73E9079A24F9FC3300329193 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9078424F9FB2900329193 /* HelperProtocol.swift */; };
 		73E9079B24F9FC7F00329193 /* com.truetalentinc.MSCP.Helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73E9077D24F9FAE000329193 /* com.truetalentinc.MSCP.Helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		73E9079E24FD959E00329193 /* PDFAuthor in Frameworks */ = {isa = PBXBuildFile; productRef = 73E9079D24FD959E00329193 /* PDFAuthor */; };
+		73E907A024FFD41A00329193 /* PDFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9079F24FFD41A00329193 /* PDFClass.swift */; };
 		73F67CFF24EE0E700088A85C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F67CFE24EE0E700088A85C /* AppDelegate.swift */; };
 		73F67D0124EE0E700088A85C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F67D0024EE0E700088A85C /* ViewController.swift */; };
 		73F67D0324EE0E710088A85C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73F67D0224EE0E710088A85C /* Assets.xcassets */; };
@@ -87,6 +89,7 @@
 		73E9078924F9FB2900329193 /* ExecutionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExecutionService.swift; sourceTree = "<group>"; };
 		73E9078A24F9FB2900329193 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		73E9078B24F9FB2900329193 /* RemoteApplicationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteApplicationProtocol.swift; sourceTree = "<group>"; };
+		73E9079F24FFD41A00329193 /* PDFClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFClass.swift; sourceTree = "<group>"; };
 		73F67CFB24EE0E700088A85C /* MSCP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSCP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F67CFE24EE0E700088A85C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73F67D0024EE0E700088A85C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73E9079E24FD959E00329193 /* PDFAuthor in Frameworks */,
 				4CED362F24FAA47F00BF4A57 /* Yams in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +189,7 @@
 			children = (
 				73F67CFE24EE0E700088A85C /* AppDelegate.swift */,
 				73E9076F24F753FD00329193 /* Compliance.swift */,
+				73E9079F24FFD41A00329193 /* PDFClass.swift */,
 				73B0EC2B24EE135C00A947CA /* GitHelper.swift */,
 				73E9076724F43E4100329193 /* Yams.swift */,
 				73E9077524F9FAB500329193 /* ExecutionService.swift */,
@@ -254,6 +259,7 @@
 			name = MSCP;
 			packageProductDependencies = (
 				4CED362E24FAA47F00BF4A57 /* Yams */,
+				73E9079D24FD959E00329193 /* PDFAuthor */,
 			);
 			productName = MSCP;
 			productReference = 73F67CFB24EE0E700088A85C /* MSCP.app */;
@@ -332,6 +338,7 @@
 			mainGroup = 73F67CF224EE0E700088A85C;
 			packageReferences = (
 				4CED362D24FAA47F00BF4A57 /* XCRemoteSwiftPackageReference "Yams" */,
+				73E9079C24FD959E00329193 /* XCRemoteSwiftPackageReference "PDFAuthor" */,
 			);
 			productRefGroup = 73F67CFC24EE0E700088A85C /* Products */;
 			projectDirPath = "";
@@ -401,6 +408,7 @@
 				73E9077624F9FAB500329193 /* MSCPError.swift in Sources */,
 				73F67D0124EE0E700088A85C /* ViewController.swift in Sources */,
 				73F67CFF24EE0E700088A85C /* AppDelegate.swift in Sources */,
+				73E907A024FFD41A00329193 /* PDFClass.swift in Sources */,
 				73E9077724F9FAB500329193 /* HelperRemote.swift in Sources */,
 				73E9077024F753FD00329193 /* Compliance.swift in Sources */,
 				73E9079324F9FB2900329193 /* RemoteApplicationProtocol.swift in Sources */,
@@ -458,7 +466,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q2636DAEP4;
+				DEVELOPMENT_TEAM = 2WUMX954UB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				OTHER_LDFLAGS = (
 					"-sectcreate",
@@ -480,7 +488,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q2636DAEP4;
+				DEVELOPMENT_TEAM = 2WUMX954UB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				OTHER_LDFLAGS = (
 					"-sectcreate",
@@ -618,7 +626,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = Q2636DAEP4;
+				DEVELOPMENT_TEAM = 2WUMX954UB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MSCP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -639,7 +647,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = Q2636DAEP4;
+				DEVELOPMENT_TEAM = 2WUMX954UB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MSCP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -795,6 +803,14 @@
 				version = 4.0.0;
 			};
 		};
+		73E9079C24FD959E00329193 /* XCRemoteSwiftPackageReference "PDFAuthor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tribalworldwidelondon/PDFAuthor";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.9;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -802,6 +818,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4CED362D24FAA47F00BF4A57 /* XCRemoteSwiftPackageReference "Yams" */;
 			productName = Yams;
+		};
+		73E9079D24FD959E00329193 /* PDFAuthor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73E9079C24FD959E00329193 /* XCRemoteSwiftPackageReference "PDFAuthor" */;
+			productName = PDFAuthor;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
