@@ -11,26 +11,11 @@ import os
 
 class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, complianceDelegate {
     func didRecieveDataUpdate(resultYaml: [rules]) {
-        var x = 1
-        for rule in resultYaml {
-            print("\(x). \(rule.id): \(rule.checkCompleted)")
-            x += 1
-        }
+//
+        
     }
     
     
-    //    func didRecieveDataUpdate() {
-    //        //        switch result {
-    //        //           case .success(let output):
-    //        //            compareResult(resultsCompared: output == expected, resultID: ruleID)
-    //        //
-    //        //           case .failure(let error):
-    //        //            print(error.localizedDescription)
-    //        //
-    //        //       }
-    //    }
-    
-    var compliance = complianceClass()
     
     @IBOutlet weak var branchSelect: NSPopUpButton!
     @IBOutlet weak var baselineSelect: NSPopUpButton!
@@ -39,6 +24,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     
     //keep track of all the rule paths
     //keep track if the rule is clicked or not
+    var compliance = complianceClass()
     var ruleURLs = [URL]()
     var rulesStatus = [[String: Int]]()
     var yamlRuleInstance = rules()
@@ -113,7 +99,8 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                     checkboxCell.checkBox.integerValue = 0
                 }
                 checkboxCell.checkBox.title = ruleName
-                //make note of its status
+//                make note of its status
+                
                 rulesStatus.append([ruleName:checkboxCell.checkBox.integerValue])
                 
                 return checkboxCell
@@ -125,7 +112,8 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return ruleURLs.count
+//        return ruleURLs.count
+        return 55
     }
     
     //if a branch is selected, load the baselines
@@ -133,13 +121,14 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         if branchSelect.titleOfSelectedItem == "" {
             return
         }
-        
+        rulesStatus.removeAll()
         baselineSelect.isEnabled = true
         if let selectedItem = branchSelect.titleOfSelectedItem {
             GitHelper().getBranch(branch: selectedItem)
             loadBaselines()
             getDir()
             tableView.reloadData()
+            
         }
         
         
@@ -151,29 +140,32 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         if baselineSelect.titleOfSelectedItem == "" {
             return
         }
+        rulesStatus.removeAll()
         tableView.reloadData()
+        
     }
     
     
     // run a compliance report on all the rules selected
     @IBAction func complianceReport(_ sender: Any) {
+
         for rule in rulesStatus {
             for (key, value) in rule {
                 for ruleURL in ruleURLs {
+
                     if ruleURL.absoluteString.contains(key) && value == 1{
                         yamlRuleInstance.readRules(ruleURL: ruleURL)
-                        yamlRules.append(yamlRuleInstance)
-                        
-                    } else {
-                        //nothing
+                     
                     }
                     
+
                 }
-                
+                   yamlRules.append(yamlRuleInstance)
+
             }
-            
+
         }
-        
+
         compliance.checkCompliance(rulesArray: yamlRules)
     }
     

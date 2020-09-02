@@ -18,17 +18,18 @@ class complianceClass {
     
     var pdfText = [String]()
     func checkCompliance(rulesArray: [rules]) {
+        
         DispatchQueue.main.async {
-        for yamlRule in rulesArray {
-            if yamlRule.tags.contains("manual") || yamlRule.tags.contains("inherent") || yamlRule.tags.contains("permanent") || yamlRule.tags.contains("n_a"){
-                continue
-                
-            } else {
-                if yamlRule.check.first != "/" {
-                    //
-                }
-                try? ExecutionService.executeScript(at: yamlRule.check){ [weak self] result in
+            for yamlRule in rulesArray {
+                if yamlRule.tags.contains("manual") || yamlRule.tags.contains("inherent") || yamlRule.tags.contains("permanent") || yamlRule.tags.contains("n_a"){
+                    continue
                     
+                } else {
+                    if yamlRule.check.first != "/" {
+                        //
+                    }
+                    try? ExecutionService.executeScript(at: yamlRule.check){ [weak self] result in
+                        
                         switch result {
                         case .success(let output):
                             for (_, key) in yamlRule.result {
@@ -44,9 +45,9 @@ class complianceClass {
                 }
             }
             
-            self.delegate?.didRecieveDataUpdate(resultYaml: rulesArray)
-            
+        self.delegate?.didRecieveDataUpdate(resultYaml: rulesArray)
         }
+        
         
     }
 }
