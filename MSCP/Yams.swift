@@ -78,6 +78,8 @@ class rules {
     var tags = [String]()
     var mobileConfig = Bool()
     
+    var checkCompleted = Bool()
+    
     func readRules(ruleURL: URL){
         let decoder = YAMLDecoder()
         if let ruleFile = try? String(contentsOf: ruleURL),

@@ -10,17 +10,26 @@ import Cocoa
 import os
 
 class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, complianceDelegate {
-    func didRecieveDataUpdate(result: Result<String, Error>, expected: String, ruleID: String) {
-        switch result {
-           case .success(let output):
-            compareResult(resultsCompared: output == expected, resultID: ruleID)
-
-           case .failure(let error):
-            print(error.localizedDescription)
-
-       }
+    func didRecieveDataUpdate(resultYaml: [rules]) {
+        var x = 1
+        for rule in resultYaml {
+            print("\(x). \(rule.id): \(rule.checkCompleted)")
+            x += 1
+        }
     }
-
+    
+    
+    //    func didRecieveDataUpdate() {
+    //        //        switch result {
+    //        //           case .success(let output):
+    //        //            compareResult(resultsCompared: output == expected, resultID: ruleID)
+    //        //
+    //        //           case .failure(let error):
+    //        //            print(error.localizedDescription)
+    //        //
+    //        //       }
+    //    }
+    
     var compliance = complianceClass()
     
     @IBOutlet weak var branchSelect: NSPopUpButton!
@@ -32,7 +41,8 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     //keep track if the rule is clicked or not
     var ruleURLs = [URL]()
     var rulesStatus = [[String: Int]]()
-    var yamlRule = rules()
+    var yamlRuleInstance = rules()
+    var yamlRules = [rules]()
     
     //load up git stuff as the UI loads
     override func viewDidAppear() {
@@ -92,20 +102,20 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         //if a baseline is selected, get the rules for it
         if let selectedBaseline =  baselineSelect.titleOfSelectedItem {
             let baselineRules = baselines().readBaseline(baseline: selectedBaseline)
-
-                guard let checkboxCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "checkCell"), owner: self) as? CustomTableCell else { return nil }
-                
+            
+            guard let checkboxCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "checkCell"), owner: self) as? CustomTableCell else { return nil }
+            
             //if the rule in the baseline matches one in URL list, check it
-                if let ruleName = ruleURLs[row].absoluteString.components(separatedBy: "/").last?.components(separatedBy: ".")[0] {
-                    if baselineRules.contains(ruleName) {
-                        checkboxCell.checkBox.integerValue = 1
-                    } else {
-                        checkboxCell.checkBox.integerValue = 0
-                    }
-                    checkboxCell.checkBox.title = ruleName
-                    //make note of its status
-                    rulesStatus.append([ruleName:checkboxCell.checkBox.integerValue])
-
+            if let ruleName = ruleURLs[row].absoluteString.components(separatedBy: "/").last?.components(separatedBy: ".")[0] {
+                if baselineRules.contains(ruleName) {
+                    checkboxCell.checkBox.integerValue = 1
+                } else {
+                    checkboxCell.checkBox.integerValue = 0
+                }
+                checkboxCell.checkBox.title = ruleName
+                //make note of its status
+                rulesStatus.append([ruleName:checkboxCell.checkBox.integerValue])
+                
                 return checkboxCell
             }
             
@@ -144,27 +154,30 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         tableView.reloadData()
     }
     
-
+    
     // run a compliance report on all the rules selected
     @IBAction func complianceReport(_ sender: Any) {
         for rule in rulesStatus {
             for (key, value) in rule {
                 for ruleURL in ruleURLs {
                     if ruleURL.absoluteString.contains(key) && value == 1{
-                        yamlRule.readRules(ruleURL: ruleURL)
-                        if yamlRule.tags.contains("manual") || yamlRule.tags.contains("inherent") || yamlRule.tags.contains("permanent") || yamlRule.tags.contains("n_a"){
-                            continue
-                        }
-                        compliance.checkCompliance(arguments: yamlRule.check, resultExpected: yamlRule.result, ruleID: yamlRule.id)
+                        yamlRuleInstance.readRules(ruleURL: ruleURL)
+                        yamlRules.append(yamlRuleInstance)
+                        
+                    } else {
+                        //nothing
                     }
+                    
                 }
+                
             }
             
         }
-   
+        
+        compliance.checkCompliance(rulesArray: yamlRules)
     }
     
-
+    
     // get all the rules in the rules directory and sub directories
     func getDir() {
         ruleURLs.removeAll()
@@ -188,8 +201,5 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         
     }
     
-    func compareResult(resultsCompared: Bool, resultID: String){
-        
-    }
 }
 
