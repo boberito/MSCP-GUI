@@ -11,13 +11,14 @@ import PDFAuthor
 import Cassowary
 
 class MultiplePages: TableChapter, TableChapterDataSource {
-  
+    
     override init(pageSpecifications: PDFPageSpecifications) {
            super.init(pageSpecifications: pageSpecifications)
            self.outlineTitle = "Compliance Report"
            self.dataSource = self
        }
-    
+    var checkCount = Int()
+    var contentText = [String]()
     func numberOfSections(in: TableChapter) -> UInt {
         return 1
     }
@@ -27,8 +28,7 @@ class MultiplePages: TableChapter, TableChapterDataSource {
     }
     
     func tableChapter(_ tableChapter: TableChapter, numberOfRowsInSection: Int) -> Int {
-//        return myText.count
-        return 1
+        return checkCount
     }
     
     func tableChapter(_ tableChapter: TableChapter, backgroundColorForRowAtIndexPath indexPath: PDFIndexPath) -> PDFColor? {
@@ -40,11 +40,13 @@ class MultiplePages: TableChapter, TableChapterDataSource {
     
     func tableChapter(_ tableChapter: TableChapter, regionFor indexPath: PDFIndexPath) -> PDFRegion {
 //            let call = myText[indexPath.row]
-        let call = "soemthing"
-           
+        
+
+        let entry = contentText[indexPath.row]
+        
            switch indexPath.column {
            case 0:
-               let region = StringRegion(string: call)
+               let region = StringRegion(string: entry)
                
                return region
            default:

@@ -8,11 +8,20 @@
 
 import Cocoa
 import os
+import PDFAuthor
+import Cassowary
 
 class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, complianceDelegate {
     func didRecieveDataUpdate(resultYaml: [rules]) {
-//
         
+        for yam in resultYaml {
+            for (_, key) in yam.result {
+                print("\(yam.id) - Result: \(yam.checkResult)")
+            }
+            
+        }
+//        createPDF(yams: resultYaml)
+        yamlRules.removeAll()
     }
     
     
@@ -27,7 +36,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     var compliance = complianceClass()
     var ruleURLs = [URL]()
     var rulesStatus = [[String: Int]]()
-    var yamlRuleInstance = rules()
+    
     var yamlRules = [rules]()
     
     //load up git stuff as the UI loads
@@ -43,6 +52,8 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         getDir()
         loadBranchSelector(branches: branchList)
         branchSelect.selectItem(withTitle: "origin/master")
+        
+        
     }
     
     override func viewDidLoad() {
@@ -87,33 +98,35 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?{
         //if a baseline is selected, get the rules for it
         if let selectedBaseline =  baselineSelect.titleOfSelectedItem {
+            //            rulesStatus.append([baselines().readBaseline(baseline: selectedBaseline):0])
             let baselineRules = baselines().readBaseline(baseline: selectedBaseline)
-            
+            //            rulesStatus baselineRules:0
             guard let checkboxCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "checkCell"), owner: self) as? CustomTableCell else { return nil }
             
             //if the rule in the baseline matches one in URL list, check it
             if let ruleName = ruleURLs[row].absoluteString.components(separatedBy: "/").last?.components(separatedBy: ".")[0] {
+                
                 if baselineRules.contains(ruleName) {
                     checkboxCell.checkBox.integerValue = 1
+                    //                    rulesStatus.append([ruleName:checkboxCell.checkBox.integerValue])
                 } else {
                     checkboxCell.checkBox.integerValue = 0
+                    //                    rulesStatus.append([ruleName:checkboxCell.checkBox.integerValue])
                 }
                 checkboxCell.checkBox.title = ruleName
-//                make note of its status
                 
-                rulesStatus.append([ruleName:checkboxCell.checkBox.integerValue])
                 
-                return checkboxCell
             }
-            
+            return checkboxCell
         }
         
         return nil
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-//        return ruleURLs.count
-        return 55
+        
+        return ruleURLs.count
+        
     }
     
     //if a branch is selected, load the baselines
@@ -124,6 +137,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         rulesStatus.removeAll()
         baselineSelect.isEnabled = true
         if let selectedItem = branchSelect.titleOfSelectedItem {
+            
             GitHelper().getBranch(branch: selectedItem)
             loadBaselines()
             getDir()
@@ -141,32 +155,43 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
             return
         }
         rulesStatus.removeAll()
+        if let selectedBaseline =  baselineSelect.titleOfSelectedItem {
+            print("baseline: \(selectedBaseline)")
+            //            rulesStatus.append([baselines().readBaseline(baseline: selectedBaseline):0])
+            let baselineRules = baselines().readBaseline(baseline: selectedBaseline)
+            for ruleURL in ruleURLs {
+                if let ruleName = ruleURL.absoluteString.components(separatedBy: "/").last?.components(separatedBy: ".")[0]{
+                    if baselineRules.contains(ruleName) {
+                        rulesStatus.append([ruleName:1])
+                    } else {
+                        rulesStatus.append([ruleName:0])
+                    }
+                }
+            }
+        }
+        
         tableView.reloadData()
         
     }
     
-    
     // run a compliance report on all the rules selected
     @IBAction func complianceReport(_ sender: Any) {
-
+        
         for rule in rulesStatus {
             for (key, value) in rule {
                 for ruleURL in ruleURLs {
-
+                    let yamlRuleInstance = rules()
                     if ruleURL.absoluteString.contains(key) && value == 1{
                         yamlRuleInstance.readRules(ruleURL: ruleURL)
-                     
+                        yamlRules.append(yamlRuleInstance)
                     }
-                    
-
                 }
-                   yamlRules.append(yamlRuleInstance)
-
+                
             }
-
         }
-
+        
         compliance.checkCompliance(rulesArray: yamlRules)
+    
     }
     
     
@@ -186,10 +211,84 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                     continue
                 } else {
                     ruleURLs.append(contentsOf: temprules!)
+                    
                 }
             }
             
         }
+        
+        
+    }
+    
+    func createPDF(yams: [rules]) {
+        
+        var reportText = [String]()
+        var pageSpec = PDFPageSpecifications(size: .A4)
+        pageSpec.contentInsets = PDFEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        pageSpec.backgroundInsets = PDFEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        
+        //        let myDoc = PDFContent(pageSpecifications: pageSpec)
+        let myDoc = MultiplePages(pageSpecifications: pageSpec)
+        var x = 1
+        print(yams.count)
+        for yam in yams {
+//            if x > 197 {
+//                break
+//            }
+            var passFail = String()
+//            if yam.checkCompleted{
+//                passFail = "PASSED"
+//            } else {
+//                passFail = "FAILED"
+//            }
+//            reportText.append("\(x).\(yam.title)\nCheck: \(yam.checkCompleted)\n\n")
+            x += 1
+        }
+
+//        print(reportText)
+        myDoc.contentText = reportText
+        myDoc.checkCount = reportText.count
+        let document = PDFAuthorDocument().with{
+            
+            $0.addChapter(myDoc)
+            
+        }
+        
+        
+        let savePanel = NSSavePanel()
+        savePanel.title = "Save Example..."
+        savePanel.prompt = "Save to file"
+        savePanel.nameFieldLabel = "Pick a name"
+        savePanel.nameFieldStringValue = "example.pdf"
+        //        savePanel.isExtensionHidden = false
+        savePanel.canSelectHiddenExtension = true
+        savePanel.allowedFileTypes = ["pdf"]
+        
+        let result = savePanel.runModal()
+        
+        switch result {
+        case .OK:
+            guard let saveURL = savePanel.url else { return }
+//            do {
+                try? document.generate(to: saveURL) { progress in
+                    //                        try document.generate(to: URL(fileURLWithPath: ("~/Desktop/test1.pdf" as NSString).expandingTildeInPath)) { progress in
+                    print ("Progress : \(Int(progress * 100))%")
+                }
+//            } catch {
+//                let alert = NSAlert()
+//                alert.messageText = "Error"
+//                alert.informativeText = "Failed to save image."
+//                alert.alertStyle = .informational
+//                alert.addButton(withTitle: "OK")
+//                alert.runModal()
+//            }
+        case .cancel:
+            print("User Cancelled")
+        default:
+            print("Panel shouldn't be anything other than OK or Cancel")
+        }
+        
+        
         
     }
     

@@ -13,10 +13,9 @@ protocol complianceDelegate: class {
 }
 
 class complianceClass {
-    var completedResult = String()
+    
     var delegate: complianceDelegate?
     
-    var pdfText = [String]()
     func checkCompliance(rulesArray: [rules]) {
         
         DispatchQueue.main.async {
@@ -29,25 +28,20 @@ class complianceClass {
                         //
                     }
                     try? ExecutionService.executeScript(at: yamlRule.check){ [weak self] result in
-                        
                         switch result {
                         case .success(let output):
-                            for (_, key) in yamlRule.result {
-                                yamlRule.checkCompleted = key == output
-                            }
-                            
+                            yamlRule.checkResult = output
+                            print(yamlRule.checkResult)
                         case .failure(let error):
-                            print(error.localizedDescription)
-                            
+                            print("ERROR: \(error.localizedDescription)")
                         }
                     }
-                    
                 }
             }
             
-        self.delegate?.didRecieveDataUpdate(resultYaml: rulesArray)
+            self.delegate?.didRecieveDataUpdate(resultYaml: rulesArray)
+            
         }
-        
         
     }
 }

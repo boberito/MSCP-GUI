@@ -58,6 +58,7 @@ class baselines {
             for section in decodedYamlBaseline.profile {
                 for rule in section.rules {
                     ruleList.append(rule)
+                    
                 }
             }
             
@@ -81,7 +82,8 @@ class rules {
     var tags = [String]()
     var mobileConfig = Bool()
     
-    var checkCompleted = Bool()
+    var checkResult = String()
+    var ruleURLs = URL(string: "")
     
     func readRules(ruleURL: URL){
         let decoder = YAMLDecoder()
