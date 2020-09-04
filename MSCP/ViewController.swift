@@ -20,7 +20,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
             }
             
         }
-//        createPDF(yams: resultYaml)
+        createPDF(yams: resultYaml)
         yamlRules.removeAll()
     }
     
@@ -177,23 +177,45 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     // run a compliance report on all the rules selected
     @IBAction func complianceReport(_ sender: Any) {
         
+        var checkRules = [String]()
         for rule in rulesStatus {
-            for (key, value) in rule {
-                for ruleURL in ruleURLs {
-                    let yamlRuleInstance = rules()
-                    if ruleURL.absoluteString.contains(key) && value == 1{
-                        yamlRuleInstance.readRules(ruleURL: ruleURL)
-                        yamlRules.append(yamlRuleInstance)
-                    }
+            for (key,value) in rule{
+                if value == 1 {
+                    checkRules.append(key)
+                    
+                }
+                if checkRules.count > 5 {
+                    break
                 }
                 
             }
+            if checkRules.count > 5 {
+                break
+            }
+        }
+        var checkURLs = [URL]()
+        //        var ruleURLs = [URL]()
+        for ruleURL in ruleURLs {
+            for checkRule in checkRules {
+                if ruleURL.absoluteString.contains(checkRule) {
+                    checkURLs.append(ruleURL)
+                }
+                if checkURLs.count > 5 {
+                    break
+                }
+                
+            }
+            if checkURLs.count > 5 {
+                break
+            }
         }
         
-        compliance.checkCompliance(rulesArray: yamlRules)
-    
+        compliance.checkCompliance(at: checkRules, ruleURLS: checkURLs){ (checkedArray) -> () in
+            
+            self.createPDF(yams: checkedArray)
+        }
+        
     }
-    
     
     // get all the rules in the rules directory and sub directories
     func getDir() {
@@ -232,20 +254,21 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         var x = 1
         print(yams.count)
         for yam in yams {
-//            if x > 197 {
-//                break
-//            }
+            
             var passFail = String()
-//            if yam.checkCompleted{
-//                passFail = "PASSED"
-//            } else {
-//                passFail = "FAILED"
-//            }
-//            reportText.append("\(x).\(yam.title)\nCheck: \(yam.checkCompleted)\n\n")
+            for (key, value) in yam.result {
+                if value == yam.checkResult {
+                    passFail = "PASS"
+                } else {
+                    passFail = "FAIL"
+                }
+            }
+            
+            reportText.append("\(x).\(yam.id) - \(passFail)")
             x += 1
         }
-
-//        print(reportText)
+        
+        //        print(reportText)
         myDoc.contentText = reportText
         myDoc.checkCount = reportText.count
         let document = PDFAuthorDocument().with{
@@ -269,19 +292,19 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         switch result {
         case .OK:
             guard let saveURL = savePanel.url else { return }
-//            do {
-                try? document.generate(to: saveURL) { progress in
-                    //                        try document.generate(to: URL(fileURLWithPath: ("~/Desktop/test1.pdf" as NSString).expandingTildeInPath)) { progress in
-                    print ("Progress : \(Int(progress * 100))%")
-                }
-//            } catch {
-//                let alert = NSAlert()
-//                alert.messageText = "Error"
-//                alert.informativeText = "Failed to save image."
-//                alert.alertStyle = .informational
-//                alert.addButton(withTitle: "OK")
-//                alert.runModal()
-//            }
+            //            do {
+            try? document.generate(to: saveURL) { progress in
+                //                        try document.generate(to: URL(fileURLWithPath: ("~/Desktop/test1.pdf" as NSString).expandingTildeInPath)) { progress in
+                print ("Progress : \(Int(progress * 100))%")
+            }
+            //            } catch {
+            //                let alert = NSAlert()
+            //                alert.messageText = "Error"
+            //                alert.informativeText = "Failed to save image."
+            //                alert.alertStyle = .informational
+            //                alert.addButton(withTitle: "OK")
+            //                alert.runModal()
+        //            }
         case .cancel:
             print("User Cancelled")
         default:
