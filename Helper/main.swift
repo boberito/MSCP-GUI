@@ -7,8 +7,6 @@
 //
 
 import Foundation
-
-NSLog("MSCP Helper started")
 let helper = Helper()
 helper.run()
 

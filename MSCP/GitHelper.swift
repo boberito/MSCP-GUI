@@ -17,18 +17,12 @@ class GitHelper {
     
     let kdefaultRepo = "https://github.com/usnistgov/macos_security.git"
     func getRepo(repo: String?=nil) {
-//        let myGroup = DispatchGroup()
-//        myGroup.enter()
-//        DispatchQueue.global().async {
-//
+
             let task = Process()
             task.launchPath = "/usr/bin/git"
             task.arguments = ["clone", repo ?? self.kdefaultRepo, defaultLocalRepoPath]
             task.launch()
             task.waitUntilExit()
-//            myGroup.leave()
-//        }
-//        myGroup.wait()
         
     }
     //just grab report branches
@@ -71,10 +65,7 @@ class GitHelper {
     //check out the branch
     //do a pull so we have the files
     func getBranch(branch: String) {
-//        let myGroup = DispatchGroup()
-//        myGroup.enter()
-//        DispatchQueue.global().async {
-//
+
             let task = Process()
             task.executableURL = URL(fileURLWithPath: "/usr/bin/git")
             let branchName = branch.components(separatedBy: "/")[1]
@@ -100,11 +91,7 @@ class GitHelper {
                 print("Error")
             }
             taskTwo.waitUntilExit()
-            
-//            myGroup.leave()
-//        }
-//        myGroup.wait()
-//
+
         
         let newGroup = DispatchGroup()
         newGroup.enter()

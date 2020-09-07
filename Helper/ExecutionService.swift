@@ -9,35 +9,28 @@ import Foundation
 struct ExecutionService {
     // MARK: - Constants
     static let programURL = URL(fileURLWithPath: "/usr/bin/env")
-    typealias Handler = (Result<String, Error>) -> Void
+    //    typealias Handler = (Result<String, Error>) -> Void
+    typealias Handler = ([[String:String]]?) -> Void
     // MARK: - Functions
-    static func executeScript(at path: String, then completion: @escaping Handler) throws {
-        let process = Process()
-//        process.executableURL = programURL
-        process.launchPath = "/bin/bash"
-        process.arguments = ["-c", path]
-        let outputPipe = Pipe()
-        process.standardOutput = outputPipe
-        process.standardError = outputPipe
-        try process.run()
-        DispatchQueue.global(qos: .userInteractive).async {
-            process.waitUntilExit()
-            let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
-            guard let output = String(data: outputData, encoding: .utf8) else {
-                completion(.failure(ScriptexError.invalidStringConversion))
-                return
+    static func executeScript(at yams: [[String:String]], then completion: ([[String:String]]) -> ()) {
+        var checkedYams = [[String:String]]()
+        for yam in yams {
+            for (id, check) in yam {
+                let process = Process()
+                process.launchPath = "/bin/bash"
+                process.arguments = ["-c", check]
+                let outputPipe = Pipe()
+                process.standardOutput = outputPipe
+                process.standardError = outputPipe
+                try? process.run()
+                    process.waitUntilExit()
+                    let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
+                    guard let output = String(data: outputData, encoding: .utf8) else {
+                        return
+                    }
+                    checkedYams.append([id:output])
             }
-            completion(.success(output))
         }
+        completion(checkedYams)
     }
 }
-
-//let task = Process()
-//      task.launchPath = "/bin/bash"
-//      task.arguments = ["-c", arguments.replacingOccurrences(of: "$CURRENT_USER", with: NSUserName())]
-//      let outpipe = Pipe()
-//      let errorPipe = Pipe()
-//      task.standardOutput = outpipe
-//      task.standardError = errorPipe
-//      task.launch()
-//      task.waitUntilExit()

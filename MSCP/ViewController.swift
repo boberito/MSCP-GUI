@@ -11,18 +11,18 @@ import os
 import PDFAuthor
 import Cassowary
 
-class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, complianceDelegate {
-    func didRecieveDataUpdate(resultYaml: [rules]) {
-        
-        for yam in resultYaml {
-            for (_, key) in yam.result {
-                print("\(yam.id) - Result: \(yam.checkResult)")
-            }
-            
-        }
-        createPDF(yams: resultYaml)
-        yamlRules.removeAll()
-    }
+class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource{
+    //    func didRecieveDataUpdate(resultYaml: [rules]) {
+    //
+    //        for yam in resultYaml {
+    //            for (_, key) in yam.result {
+    //                print("\(yam.id) - Result: \(yam.checkResult)")
+    //            }
+    //
+    //        }
+    //        createPDF(yams: resultYaml)
+    //        yamlRules.removeAll()
+    //    }
     
     
     
@@ -33,7 +33,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     
     //keep track of all the rule paths
     //keep track if the rule is clicked or not
-    var compliance = complianceClass()
+    //    var compliance = complianceClass()
     var ruleURLs = [URL]()
     var rulesStatus = [[String: Int]]()
     
@@ -61,7 +61,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        compliance.delegate = self
+        //        compliance.delegate = self
         
         //reload the table with the data
         getDir()
@@ -184,36 +184,71 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                     checkRules.append(key)
                     
                 }
-                if checkRules.count > 5 {
-                    break
-                }
+//                if checkRules.count > 5 {
+//                    break
+//                }
                 
             }
-            if checkRules.count > 5 {
-                break
-            }
+//            if checkRules.count > 5 {
+//                break
+//            }
         }
         var checkURLs = [URL]()
         //        var ruleURLs = [URL]()
+        
+        var yams = [rules]()
+        var uncheckedRules = [[String:String]]()
         for ruleURL in ruleURLs {
             for checkRule in checkRules {
+                let yam = rules()
                 if ruleURL.absoluteString.contains(checkRule) {
                     checkURLs.append(ruleURL)
+                    yam.readRules(ruleURL: ruleURL)
+                    yams.append(yam)
+                    uncheckedRules.append([yam.id: yam.check])
                 }
-                if checkURLs.count > 5 {
-                    break
+//                if checkURLs.count > 5 {
+//                    break
+//                }
+                
+            }
+//            if checkURLs.count > 5 {
+//                break
+//            }
+        }
+        
+        
+        
+        try? ExecutionService.executeScript(at: uncheckedRules) { (finishedArray) -> () in
+            for yam in yams {
+                for checked in finishedArray {
+                    for (key, value) in checked {
+                        if yam.id == key {
+                            yam.checkResult = value
+                        }
+                    }
                 }
                 
             }
-            if checkURLs.count > 5 {
-                break
+            DispatchQueue.main.async {
+                self.createPDF(yams: yams)
             }
-        }
-        
-        compliance.checkCompliance(at: checkRules, ruleURLS: checkURLs){ (checkedArray) -> () in
             
-            self.createPDF(yams: checkedArray)
         }
+        //
+        //        compliance.checkCompliance(at: checkRules, ruleURLS: checkURLs){ (checkedArray) -> () in
+        //            for yam in yams {
+        //                for checked in checkedArray {
+        //                    for (id, result) in checked {
+        //                        if yam.id == id {
+        //                            yam.checkResult = result
+        //                        }
+        //                    }
+        //                }
+        //
+        //            }
+        //            self.createPDF(yams: yams)
+        //        }
         
     }
     
@@ -252,12 +287,11 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         //        let myDoc = PDFContent(pageSpecifications: pageSpec)
         let myDoc = MultiplePages(pageSpecifications: pageSpec)
         var x = 1
-        print(yams.count)
+        
         for yam in yams {
-            
             var passFail = String()
-            for (key, value) in yam.result {
-                if value == yam.checkResult {
+            for (_, expectedResult) in yam.result {
+                if yam.checkResult.dropLast() == expectedResult {
                     passFail = "PASS"
                 } else {
                     passFail = "FAIL"
@@ -267,6 +301,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
             reportText.append("\(x).\(yam.id) - \(passFail)")
             x += 1
         }
+        
         
         //        print(reportText)
         myDoc.contentText = reportText
@@ -283,7 +318,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         savePanel.prompt = "Save to file"
         savePanel.nameFieldLabel = "Pick a name"
         savePanel.nameFieldStringValue = "example.pdf"
-        //        savePanel.isExtensionHidden = false
+        savePanel.isExtensionHidden = false
         savePanel.canSelectHiddenExtension = true
         savePanel.allowedFileTypes = ["pdf"]
         

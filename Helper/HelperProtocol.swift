@@ -10,5 +10,5 @@ import Foundation
 
 @objc(HelperProtocol)
 public protocol HelperProtocol {
-    @objc func executeScript(at path: String, then completion: @escaping (String?, Error?) -> Void)
+    @objc func executeScript(at yams: [[String:String]], then completion: @escaping ([[String:String]]) -> Void)
 }
