@@ -9,7 +9,9 @@
 import Cocoa
 
 class CustomTableCell: NSTableCellView {
-
+    
+    
     @IBOutlet weak var checkBox: NSButton!
     
+  
 }

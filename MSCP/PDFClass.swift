@@ -55,3 +55,30 @@ class MultiplePages: TableChapter, TableChapterDataSource {
       }
     
 }
+
+class TitleChapter: PDFChapter {
+    override init(pageSpecifications: PDFPageSpecifications) {
+        super.init(pageSpecifications: pageSpecifications)
+    }
+    
+    var title = String()
+    
+    override func generate() {
+        withNewPage {
+            $0.backgroundColor = PDFColor(white: 0.95, alpha: 1.0)
+            
+            let titleRegion = StringRegion(string: title,
+                                           font: PDFFont.boldSystemFont(ofSize: 24),
+                                           color: PDFColor(white: 0.1, alpha: 1.0),
+                                           alignment: .center)
+            
+            $0.addChild(titleRegion)
+            
+            titleRegion.addConstraints(
+                titleRegion.left == $0.leftInset,
+                titleRegion.right == $0.rightInset,
+                titleRegion.centerY == $0.centerY
+            )
+        }
+    }
+}

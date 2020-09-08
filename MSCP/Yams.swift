@@ -36,7 +36,6 @@ struct ruleYaml: Decodable {
     let tags: [String]
     let mobileconfig: Bool?
     //let mobileconfigInfo: MobileConfigDomain?
-    var finding: Bool?
     
     enum CodingKeys: String, CodingKey {
         case id, title, result, discussion, check, fix, references, macOS, tags, mobileconfig
@@ -48,6 +47,10 @@ struct ruleYaml: Decodable {
 //baselines - method to read the baseline Yam
 class baselines {
     
+    var title = String()
+    var url = URL(string: "")
+    var isEnabled = Bool()
+    
     func readBaseline(baseline: String) -> [String] {
         let fullURLString = defaultLocalRepoPath + "/baselines/" + baseline
         let decoder = YAMLDecoder()
@@ -55,6 +58,7 @@ class baselines {
         
         if let baselineYam = try? String(contentsOfFile: fullURLString),
             let decodedYamlBaseline = try? decoder.decode(baselineYaml.self, from: baselineYam) {
+            title = decodedYamlBaseline.title
             for section in decodedYamlBaseline.profile {
                 for rule in section.rules {
                     ruleList.append(rule)

@@ -12,19 +12,6 @@ import PDFAuthor
 import Cassowary
 
 class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource{
-    //    func didRecieveDataUpdate(resultYaml: [rules]) {
-    //
-    //        for yam in resultYaml {
-    //            for (_, key) in yam.result {
-    //                print("\(yam.id) - Result: \(yam.checkResult)")
-    //            }
-    //
-    //        }
-    //        createPDF(yams: resultYaml)
-    //        yamlRules.removeAll()
-    //    }
-    
-    
     
     @IBOutlet weak var branchSelect: NSPopUpButton!
     @IBOutlet weak var baselineSelect: NSPopUpButton!
@@ -37,7 +24,6 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     var ruleURLs = [URL]()
     var rulesStatus = [[String: Int]]()
     
-    var yamlRules = [rules]()
     
     //load up git stuff as the UI loads
     override func viewDidAppear() {
@@ -62,6 +48,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         //        compliance.delegate = self
+        
         
         //reload the table with the data
         getDir()
@@ -123,6 +110,26 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         return nil
     }
     
+    @IBAction func checkboxAction(_ sender: NSButton) {
+        //        print(sender.title)
+        if baselineSelect.title == "" {
+            rulesStatus.removeAll()
+            rulesStatus.append([sender.title:sender.integerValue])
+        } else {
+            
+            rulesStatus = rulesStatus.map({
+                var dict = $0
+                let keyExists = dict[sender.title] != nil
+                if keyExists{
+                    dict[sender.title] = sender.integerValue
+                }
+                return dict
+            })
+        }
+        print(rulesStatus)
+        
+    }
+    
     func numberOfRows(in tableView: NSTableView) -> Int {
         
         return ruleURLs.count
@@ -156,7 +163,6 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         }
         rulesStatus.removeAll()
         if let selectedBaseline =  baselineSelect.titleOfSelectedItem {
-            print("baseline: \(selectedBaseline)")
             //            rulesStatus.append([baselines().readBaseline(baseline: selectedBaseline):0])
             let baselineRules = baselines().readBaseline(baseline: selectedBaseline)
             for ruleURL in ruleURLs {
@@ -184,14 +190,14 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                     checkRules.append(key)
                     
                 }
-//                if checkRules.count > 5 {
-//                    break
-//                }
+                //                if checkRules.count > 5 {
+                //                    break
+                //                }
                 
             }
-//            if checkRules.count > 5 {
-//                break
-//            }
+            //            if checkRules.count > 5 {
+            //                break
+            //            }
         }
         var checkURLs = [URL]()
         //        var ruleURLs = [URL]()
@@ -207,14 +213,14 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                     yams.append(yam)
                     uncheckedRules.append([yam.id: yam.check])
                 }
-//                if checkURLs.count > 5 {
-//                    break
-//                }
+                //                if checkURLs.count > 5 {
+                //                    break
+                //                }
                 
             }
-//            if checkURLs.count > 5 {
-//                break
-//            }
+            //            if checkURLs.count > 5 {
+            //                break
+            //            }
         }
         
         
@@ -297,17 +303,41 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                     passFail = "FAIL"
                 }
             }
+            if yam.check.first != "/" {
+                for tag in yam.tags {
+                    if tag == "inherent" {
+                        passFail = "Inherent"
+                    }
+                    if tag == "permanent" {
+                        passFail = "Permanent"
+                    }
+                    if tag == "n_a" {
+                        passFail = "Not Applicable"
+                    }
+                    if tag == "manual" {
+                        passFail = "Manual Check"
+                    }
+                }
+            }
             
-            reportText.append("\(x).\(yam.id) - \(passFail)")
+            reportText.append("\(x). [\(passFail)] \(yam.title)")
             x += 1
         }
+        let myTitle = TitleChapter(pageSpecifications: pageSpec)
+        if let selectedBaseline =  baselineSelect.titleOfSelectedItem {
+            let baseline = baselines()
+            baseline.readBaseline(baseline: selectedBaseline)
+            
+            myTitle.title = "macOS Compliance Report\n\(baseline.title)"
+        }
+        
         
         
         //        print(reportText)
         myDoc.contentText = reportText
         myDoc.checkCount = reportText.count
         let document = PDFAuthorDocument().with{
-            
+            $0.addChapter(myTitle)
             $0.addChapter(myDoc)
             
         }
