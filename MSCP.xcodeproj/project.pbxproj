@@ -32,7 +32,7 @@
 		73E9079A24F9FC3300329193 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9078424F9FB2900329193 /* HelperProtocol.swift */; };
 		73E9079B24F9FC7F00329193 /* com.truetalentinc.MSCP.Helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73E9077D24F9FAE000329193 /* com.truetalentinc.MSCP.Helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		73E9079E24FD959E00329193 /* PDFAuthor in Frameworks */ = {isa = PBXBuildFile; productRef = 73E9079D24FD959E00329193 /* PDFAuthor */; };
-		73E907A024FFD41A00329193 /* PDFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9079F24FFD41A00329193 /* PDFClass.swift */; };
+		73E907A024FFD41A00329193 /* PDFHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9079F24FFD41A00329193 /* PDFHelper.swift */; };
 		73F67CFF24EE0E700088A85C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F67CFE24EE0E700088A85C /* AppDelegate.swift */; };
 		73F67D0124EE0E700088A85C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F67D0024EE0E700088A85C /* ViewController.swift */; };
 		73F67D0324EE0E710088A85C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73F67D0224EE0E710088A85C /* Assets.xcassets */; };
@@ -89,7 +89,7 @@
 		73E9078924F9FB2900329193 /* ExecutionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExecutionService.swift; sourceTree = "<group>"; };
 		73E9078A24F9FB2900329193 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		73E9078B24F9FB2900329193 /* RemoteApplicationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteApplicationProtocol.swift; sourceTree = "<group>"; };
-		73E9079F24FFD41A00329193 /* PDFClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFClass.swift; sourceTree = "<group>"; };
+		73E9079F24FFD41A00329193 /* PDFHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFHelper.swift; sourceTree = "<group>"; };
 		73F67CFB24EE0E700088A85C /* MSCP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSCP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F67CFE24EE0E700088A85C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73F67D0024EE0E700088A85C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 			children = (
 				73F67CFE24EE0E700088A85C /* AppDelegate.swift */,
 				73E9076F24F753FD00329193 /* Compliance.swift */,
-				73E9079F24FFD41A00329193 /* PDFClass.swift */,
+				73E9079F24FFD41A00329193 /* PDFHelper.swift */,
 				73B0EC2B24EE135C00A947CA /* GitHelper.swift */,
 				73E9076724F43E4100329193 /* Yams.swift */,
 				73E9077524F9FAB500329193 /* ExecutionService.swift */,
@@ -408,7 +408,7 @@
 				73E9077624F9FAB500329193 /* MSCPError.swift in Sources */,
 				73F67D0124EE0E700088A85C /* ViewController.swift in Sources */,
 				73F67CFF24EE0E700088A85C /* AppDelegate.swift in Sources */,
-				73E907A024FFD41A00329193 /* PDFClass.swift in Sources */,
+				73E907A024FFD41A00329193 /* PDFHelper.swift in Sources */,
 				73E9077724F9FAB500329193 /* HelperRemote.swift in Sources */,
 				73E9077024F753FD00329193 /* Compliance.swift in Sources */,
 				73E9079324F9FB2900329193 /* RemoteApplicationProtocol.swift in Sources */,

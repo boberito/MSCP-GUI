@@ -37,7 +37,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         let branchList = GitHelper().listBranches()
         getDir()
         loadBranchSelector(branches: branchList)
-        branchSelect.selectItem(withTitle: "origin/master")
+        branchSelect.selectItem(withTitle: "")
         
         
     }
@@ -113,7 +113,6 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     @IBAction func checkboxAction(_ sender: NSButton) {
         //        print(sender.title)
         if baselineSelect.title == "" {
-            rulesStatus.removeAll()
             rulesStatus.append([sender.title:sender.integerValue])
         } else {
             
@@ -126,7 +125,6 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 return dict
             })
         }
-        print(rulesStatus)
         
     }
     
@@ -211,7 +209,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                     checkURLs.append(ruleURL)
                     yam.readRules(ruleURL: ruleURL)
                     yams.append(yam)
-                    uncheckedRules.append([yam.id: yam.check])
+                    uncheckedRules.append([yam.id: yam.check.replacingOccurrences(of: "$CURRENT_USER", with: NSUserName())])
                 }
                 //                if checkURLs.count > 5 {
                 //                    break
@@ -291,16 +289,20 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         pageSpec.backgroundInsets = PDFEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         
         //        let myDoc = PDFContent(pageSpecifications: pageSpec)
-        let myDoc = MultiplePages(pageSpecifications: pageSpec)
+        let mainDoc = MultiplePages(pageSpecifications: pageSpec)
         var x = 1
         
+        var pass = 0
+        var fail = 0
         for yam in yams {
             var passFail = String()
             for (_, expectedResult) in yam.result {
                 if yam.checkResult.dropLast() == expectedResult {
                     passFail = "PASS"
+                    pass += 1
                 } else {
                     passFail = "FAIL"
+                    fail += 1
                 }
             }
             if yam.check.first != "/" {
@@ -324,6 +326,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
             x += 1
         }
         let myTitle = TitleChapter(pageSpecifications: pageSpec)
+
         if let selectedBaseline =  baselineSelect.titleOfSelectedItem {
             let baseline = baselines()
             baseline.readBaseline(baseline: selectedBaseline)
@@ -331,14 +334,29 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
             myTitle.title = "macOS Compliance Report\n\(baseline.title)"
         }
         
+        let footer = regularPage(pageSpecifications: pageSpec)
+        var percentage = Double()
         
+        percentage = round(100*(Double(Double(pass)/(Double(pass)+Double(fail)))))
+        footer.content = """
+        
+        Compliance Score
+        --------------------------------------
+        Number of passed test: \(pass)
+        Number of failed tests: \(fail)
+        Percentage passed: \(percentage)%
+"""
+//        let footer = regularPage(pageSpecifications: pageSpec)
+//        foot
         
         //        print(reportText)
-        myDoc.contentText = reportText
-        myDoc.checkCount = reportText.count
+        mainDoc.contentText = reportText
+        mainDoc.checkCount = reportText.count
         let document = PDFAuthorDocument().with{
             $0.addChapter(myTitle)
-            $0.addChapter(myDoc)
+            $0.addChapter(mainDoc)
+            $0.addChapter(footer)
+            
             
         }
         

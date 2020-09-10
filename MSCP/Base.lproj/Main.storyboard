@@ -684,7 +684,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="macOS Security Compliance Project GUI" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -706,20 +706,10 @@
             <objects>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="MSCP" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" autoresizesSubviews="NO" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="499" height="676"/>
+                    <view key="view" autoresizesSubviews="NO" misplaced="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="493" height="694"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lqg-Os-nND">
-                                <rect key="frame" x="61" y="28" width="156" height="32"/>
-                                <buttonCell key="cell" type="push" title="Compliance Report" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WZu-Bd-uRE">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <connections>
-                                        <action selector="complianceReport:" target="XfG-lQ-9wD" id="hD9-au-uuy"/>
-                                    </connections>
-                                </buttonCell>
-                            </button>
                             <popUpButton verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ajr-WX-GOi">
                                 <rect key="frame" x="111" y="621" width="280" height="25"/>
                                 <constraints>
@@ -738,13 +728,6 @@
                                     </connections>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1AU-3W-9le">
-                                <rect key="frame" x="302" y="28" width="105" height="32"/>
-                                <buttonCell key="cell" type="push" title="Remediate" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WXs-zW-gI4">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
                             <popUpButton verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="64m-gC-2BU">
                                 <rect key="frame" x="111" y="652" width="280" height="29"/>
                                 <constraints>
@@ -764,19 +747,19 @@
                                 </connections>
                             </popUpButton>
                             <scrollView misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="25" horizontalPageScroll="10" verticalLineScroll="25" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWJ-MF-dOv">
-                                <rect key="frame" x="14" y="106" width="471" height="489"/>
+                                <rect key="frame" x="20" y="78" width="465" height="517"/>
                                 <clipView key="contentView" id="4ch-CK-FhC">
-                                    <rect key="frame" x="1" y="0.0" width="469" height="488"/>
+                                    <rect key="frame" x="1" y="0.0" width="463" height="516"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" headerView="0La-xD-GRZ" viewBased="YES" id="bSC-Wd-hWp">
-                                            <rect key="frame" x="0.0" y="0.0" width="469" height="463"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="463" height="491"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="1" height="1"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="checkbox" width="468" minWidth="40" maxWidth="1000" id="a27-na-a7O">
+                                                <tableColumn identifier="checkbox" width="462" minWidth="40" maxWidth="1000" id="a27-na-a7O">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -789,7 +772,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="checkCell" id="03v-bw-ymA" customClass="CustomTableCell" customModule="MSCP" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="468" height="40"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="462" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="skN-Yv-VUD">
@@ -870,19 +853,28 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="0La-xD-GRZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="469" height="25"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="463" height="25"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lqg-Os-nND">
+                                <rect key="frame" x="171" y="30" width="156" height="32"/>
+                                <buttonCell key="cell" type="push" title="Compliance Report" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WZu-Bd-uRE">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="complianceReport:" target="XfG-lQ-9wD" id="hD9-au-uuy"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="64m-gC-2BU" firstAttribute="trailing" secondItem="Ajr-WX-GOi" secondAttribute="trailing" id="30b-2Q-Zl9"/>
-                            <constraint firstItem="Lqg-Os-nND" firstAttribute="baseline" secondItem="1AU-3W-9le" secondAttribute="baseline" id="6SB-5A-Qna"/>
                             <constraint firstItem="Lqg-Os-nND" firstAttribute="top" secondItem="IWJ-MF-dOv" secondAttribute="bottom" constant="50" id="7Oa-Df-VkF"/>
-                            <constraint firstItem="1AU-3W-9le" firstAttribute="leading" secondItem="Lqg-Os-nND" secondAttribute="trailing" constant="97" id="7ah-Lb-Rxn"/>
                             <constraint firstItem="64m-gC-2BU" firstAttribute="leading" secondItem="Ajr-WX-GOi" secondAttribute="leading" id="FQ6-U3-a3Y"/>
                             <constraint firstItem="IWJ-MF-dOv" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Fzj-2I-JC0"/>
                             <constraint firstItem="Ajr-WX-GOi" firstAttribute="top" secondItem="64m-gC-2BU" secondAttribute="bottom" constant="10" symbolic="YES" id="M6x-ln-OsQ"/>
+                            <constraint firstItem="Lqg-Os-nND" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="WSM-Op-9SU"/>
                             <constraint firstItem="64m-gC-2BU" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="f9u-Z7-DMB"/>
                             <constraint firstItem="Lqg-Os-nND" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="67" id="hBw-UZ-Rin"/>
                             <constraint firstAttribute="bottom" secondItem="Lqg-Os-nND" secondAttribute="bottom" constant="35" id="hEk-iT-Qhb"/>
@@ -901,7 +893,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="30" y="1002"/>
+            <point key="canvasLocation" x="29.5" y="1002"/>
         </scene>
     </scenes>
 </document>

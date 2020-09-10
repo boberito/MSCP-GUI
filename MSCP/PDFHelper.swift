@@ -39,8 +39,6 @@ class MultiplePages: TableChapter, TableChapterDataSource {
       }
     
     func tableChapter(_ tableChapter: TableChapter, regionFor indexPath: PDFIndexPath) -> PDFRegion {
-//            let call = myText[indexPath.row]
-        
 
         let entry = contentText[indexPath.row]
         
@@ -79,6 +77,35 @@ class TitleChapter: PDFChapter {
                 titleRegion.right == $0.rightInset,
                 titleRegion.centerY == $0.centerY
             )
+        }
+    }
+}
+
+class regularPage: PDFChapter {
+
+    override init(pageSpecifications: PDFPageSpecifications) {
+        super.init(pageSpecifications: pageSpecifications)
+    }
+
+    var content = String()
+    override func generate() {
+        withNewPage {
+            $0.backgroundColor = PDFColor(white: 0.95, alpha: 1.0)
+
+            let r = MultiColumnStringRegion(string: content,
+                    font: .systemFont(ofSize: 10),
+                    color: PDFColor(white: 0, alpha: 1.0),
+                    alignment: .left,
+                    numColumns: 1)
+
+            r.preferredMaxLayoutWidth = $0.contentWidth
+
+            $0.addChild(r)
+
+            r.addConstraints(
+                    r.left == $0.leftInset,
+                    r.right == $0.rightInset,
+                    r.top == $0.topInset)
         }
     }
 }
