@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B2C8C449-7C80-46B4-8616-1AB54973D3E2"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BADA7EA2-DCFA-43CC-9996-DF4F22BDCD58"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MSCP/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
+            landmarkName = "complianceReport(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BADA7EA2-DCFA-43CC-9996-DF4F22BDCD58 - 4c8e9edf01cfc46c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MSCP.ViewController.complianceReport(Any) -&gt; ()"
+                  moduleName = "MSCP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/boberito/Documents/GitHub/MSCP/MSCP/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "222"
+                  endingLineNumber = "222"
+                  offsetFromSymbolStart = "3636">
+               </Location>
+               <Location
+                  uuid = "BADA7EA2-DCFA-43CC-9996-DF4F22BDCD58 - 37ef07f3d627fa60"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;) -&gt; () in MSCP.ViewController.complianceReport(Any) -&gt; ()"
+                  moduleName = "MSCP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/boberito/Documents/GitHub/MSCP/MSCP/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "199"
+                  endingLineNumber = "199"
+                  offsetFromSymbolStart = "309">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7E51685B-0223-4A8B-9087-B2E84A976B65"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MSCP/ExecutionService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "8"
+            endingLineNumber = "8"
+            landmarkName = "executeScript(at:then:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7E51685B-0223-4A8B-9087-B2E84A976B65 - 63ef51ba757e9c87"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static MSCP.ExecutionService.executeScript(at: Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, then: (Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;) -&gt; ()) throws -&gt; ()"
+                  moduleName = "MSCP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/boberito/Documents/GitHub/MSCP/MSCP/ExecutionService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "7E51685B-0223-4A8B-9087-B2E84A976B65 - ad2abc4993b389c0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;&gt;) -&gt; () in static MSCP.ExecutionService.executeScript(at: Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, then: (Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;) -&gt; ()) throws -&gt; ()"
+                  moduleName = "MSCP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/boberito/Documents/GitHub/MSCP/MSCP/ExecutionService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "761E4749-21E2-4FB9-9919-78D407415A64"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MSCP/HelperRemote.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "getRemote()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "761E4749-21E2-4FB9-9919-78D407415A64 - 161dc7aac47ed0eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MSCP.HelperRemote.getRemote() throws -&gt; MSCP.HelperProtocol"
+                  moduleName = "MSCP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/boberito/Documents/GitHub/MSCP/MSCP/HelperRemote.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "761E4749-21E2-4FB9-9919-78D407415A64 - 4d8f8f3e19f2bb22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Error) -&gt; () in MSCP.HelperRemote.getRemote() throws -&gt; MSCP.HelperProtocol"
+                  moduleName = "MSCP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/boberito/Documents/GitHub/MSCP/MSCP/HelperRemote.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "200F046C-2B31-4A0A-9FCE-3668EB085C96"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MSCP/HelperRemote.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "createConnection()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B521256-8931-41DC-A318-B80655795551"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MSCP/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "complianceReport(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63177EE4-0B90-4CD3-ABD3-1D778334D935"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MSCP/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
+            landmarkName = "complianceReport(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "63177EE4-0B90-4CD3-ABD3-1D778334D935 - 4c8e9edf01cfc182"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MSCP.ViewController.complianceReport(Any) -&gt; ()"
+                  moduleName = "MSCP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/boberito/Documents/GitHub/MSCP/MSCP/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "264"
+                  endingLineNumber = "264"
+                  offsetFromSymbolStart = "3466">
+               </Location>
+               <Location
+                  uuid = "63177EE4-0B90-4CD3-ABD3-1D778334D935 - 37ef07f3d627f4b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;) -&gt; () in MSCP.ViewController.complianceReport(Any) -&gt; ()"
+                  moduleName = "MSCP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/boberito/Documents/GitHub/MSCP/MSCP/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "248"
+                  endingLineNumber = "248"
+                  offsetFromSymbolStart = "309">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E8FAABC-6897-4590-AD5B-4388096399E0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MSCP/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
+            landmarkName = "remediate(yams:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

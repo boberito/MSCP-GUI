@@ -11,7 +11,6 @@
 		73B0EC2C24EE135C00A947CA /* GitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B0EC2B24EE135C00A947CA /* GitHelper.swift */; };
 		73E9076824F43E4100329193 /* Yams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9076724F43E4100329193 /* Yams.swift */; };
 		73E9076E24F601BE00329193 /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9076D24F601BE00329193 /* CustomTableCell.swift */; };
-		73E9077024F753FD00329193 /* Compliance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9076F24F753FD00329193 /* Compliance.swift */; };
 		73E9077224F9FAA600329193 /* Result+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9077124F9FAA600329193 /* Result+Extension.swift */; };
 		73E9077624F9FAB500329193 /* MSCPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9077324F9FAB500329193 /* MSCPError.swift */; };
 		73E9077724F9FAB500329193 /* HelperRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9077424F9FAB500329193 /* HelperRemote.swift */; };
@@ -75,7 +74,6 @@
 		73B0EC2B24EE135C00A947CA /* GitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHelper.swift; sourceTree = "<group>"; };
 		73E9076724F43E4100329193 /* Yams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yams.swift; sourceTree = "<group>"; };
 		73E9076D24F601BE00329193 /* CustomTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableCell.swift; sourceTree = "<group>"; };
-		73E9076F24F753FD00329193 /* Compliance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compliance.swift; sourceTree = "<group>"; };
 		73E9077124F9FAA600329193 /* Result+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+Extension.swift"; sourceTree = "<group>"; };
 		73E9077324F9FAB500329193 /* MSCPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSCPError.swift; sourceTree = "<group>"; };
 		73E9077424F9FAB500329193 /* HelperRemote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperRemote.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				73F67CFE24EE0E700088A85C /* AppDelegate.swift */,
-				73E9076F24F753FD00329193 /* Compliance.swift */,
 				73E9079F24FFD41A00329193 /* PDFHelper.swift */,
 				73B0EC2B24EE135C00A947CA /* GitHelper.swift */,
 				73E9076724F43E4100329193 /* Yams.swift */,
@@ -410,7 +407,6 @@
 				73F67CFF24EE0E700088A85C /* AppDelegate.swift in Sources */,
 				73E907A024FFD41A00329193 /* PDFHelper.swift in Sources */,
 				73E9077724F9FAB500329193 /* HelperRemote.swift in Sources */,
-				73E9077024F753FD00329193 /* Compliance.swift in Sources */,
 				73E9079324F9FB2900329193 /* RemoteApplicationProtocol.swift in Sources */,
 				73E9076824F43E4100329193 /* Yams.swift in Sources */,
 				73E9077824F9FAB500329193 /* ExecutionService.swift in Sources */,

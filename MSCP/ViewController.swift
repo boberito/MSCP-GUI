@@ -178,6 +178,56 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         
     }
     
+    
+    @IBAction func remediateButton(_ sender: Any) {
+        print("hello im a remediate button")
+        var checkRules = [String]()
+        for rule in rulesStatus {
+            for (key,value) in rule{
+                if value == 1 {
+                    checkRules.append(key)
+                    
+                }
+            }
+        }
+        var checkURLs = [URL]()
+        var yams = [rules]()
+        var uncheckedRules = [[String:String]]()
+        for ruleURL in ruleURLs {
+            for checkRule in checkRules {
+                let yam = rules()
+                if ruleURL.absoluteString.contains(checkRule) {
+                    checkURLs.append(ruleURL)
+                    yam.readRules(ruleURL: ruleURL)
+                    yams.append(yam)
+                    uncheckedRules.append([yam.id: yam.check.replacingOccurrences(of: "$CURRENT_USER", with: NSUserName())])
+                }
+                
+            }
+            
+        }
+        try? ExecutionService.executeScript(at: uncheckedRules) { (finishedArray) -> () in
+            for yam in yams {
+                for checked in finishedArray {
+                    for (key, value) in checked {
+                        if yam.id == key {
+                            yam.checkResult = value
+                        }
+                    }
+                }
+                
+            }
+            DispatchQueue.main.async {
+                // send it off somewhere else to do things
+                // self.createPDF(yams: yams)
+                self.remediate(yams: yams)
+            }
+        }
+        
+    }
+    
+    
+    
     // run a compliance report on all the rules selected
     @IBAction func complianceReport(_ sender: Any) {
         
@@ -188,14 +238,9 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                     checkRules.append(key)
                     
                 }
-                //                if checkRules.count > 5 {
-                //                    break
-                //                }
                 
             }
-            //            if checkRules.count > 5 {
-            //                break
-            //            }
+            
         }
         var checkURLs = [URL]()
         //        var ruleURLs = [URL]()
@@ -211,17 +256,10 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                     yams.append(yam)
                     uncheckedRules.append([yam.id: yam.check.replacingOccurrences(of: "$CURRENT_USER", with: NSUserName())])
                 }
-                //                if checkURLs.count > 5 {
-                //                    break
-                //                }
                 
             }
-            //            if checkURLs.count > 5 {
-            //                break
-            //            }
+            
         }
-        
-        
         
         try? ExecutionService.executeScript(at: uncheckedRules) { (finishedArray) -> () in
             for yam in yams {
@@ -239,20 +277,6 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
             }
             
         }
-        //
-        //        compliance.checkCompliance(at: checkRules, ruleURLS: checkURLs){ (checkedArray) -> () in
-        //            for yam in yams {
-        //                for checked in checkedArray {
-        //                    for (id, result) in checked {
-        //                        if yam.id == id {
-        //                            yam.checkResult = result
-        //                        }
-        //                    }
-        //                }
-        //
-        //            }
-        //            self.createPDF(yams: yams)
-        //        }
         
     }
     
@@ -278,6 +302,53 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
             
         }
         
+        
+    }
+    
+    func remediate(yams: [rules]) {
+        for yam in yams {
+            if yam.tags.contains("inherent") || yam.tags.contains("permanent") || yam.tags.contains("n_a") || yam.tags.contains("manual") {
+                continue
+            }
+            
+            if yam.mobileConfig {
+                continue
+            }
+            
+            
+            var failArray = [[String:String]]()
+            for (_, expectedResult) in yam.result {
+                if yam.checkResult.dropLast() != expectedResult {
+                let bashScript = "[source,bash]"
+                if yam.fix.contains(bashScript) {
+                    let command = yam.fix.components(separatedBy: "----")[1]
+                    failArray.append([yam.id: command])
+                    
+                }  
+                }
+            }
+            try? ExecutionService.executeScript(at: failArray) { (finishedArray) -> () in
+                for yam in yams {
+                    for checked in finishedArray {
+                        for (key, value) in checked {
+                            if yam.id == key {
+                                yam.checkResult = value
+                            }
+                        }
+                    }
+                    
+                }
+                DispatchQueue.main.async {
+                    let alert = NSAlert()
+                     alert.messageText = "Remediation Complete"
+                     alert.informativeText = "All script fixes have been run"
+                     alert.alertStyle = .informational
+                     alert.addButton(withTitle: "OK")
+                    alert.runModal()
+                }
+            }
+            
+        }
         
     }
     
@@ -326,7 +397,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
             x += 1
         }
         let myTitle = TitleChapter(pageSpecifications: pageSpec)
-
+        
         if let selectedBaseline =  baselineSelect.titleOfSelectedItem {
             let baseline = baselines()
             baseline.readBaseline(baseline: selectedBaseline)
@@ -346,8 +417,8 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         Number of failed tests: \(fail)
         Percentage passed: \(percentage)%
 """
-//        let footer = regularPage(pageSpecifications: pageSpec)
-//        foot
+        //        let footer = regularPage(pageSpecifications: pageSpec)
+        //        foot
         
         //        print(reportText)
         mainDoc.contentText = reportText
@@ -359,7 +430,6 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
             
             
         }
-        
         
         let savePanel = NSSavePanel()
         savePanel.title = "Save Example..."
@@ -380,23 +450,19 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 //                        try document.generate(to: URL(fileURLWithPath: ("~/Desktop/test1.pdf" as NSString).expandingTildeInPath)) { progress in
                 print ("Progress : \(Int(progress * 100))%")
             }
-            //            } catch {
-            //                let alert = NSAlert()
-            //                alert.messageText = "Error"
-            //                alert.informativeText = "Failed to save image."
-            //                alert.alertStyle = .informational
-            //                alert.addButton(withTitle: "OK")
-            //                alert.runModal()
+        //            } catch {
+        //                let alert = NSAlert()
+        //                alert.messageText = "Error"
+        //                alert.informativeText = "Failed to save image."
+        //                alert.alertStyle = .informational
+        //                alert.addButton(withTitle: "OK")
+        //                alert.runModal()
         //            }
         case .cancel:
             print("User Cancelled")
         default:
             print("Panel shouldn't be anything other than OK or Cancel")
         }
-        
-        
-        
     }
-    
 }
 

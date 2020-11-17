@@ -85,6 +85,7 @@ class rules {
     var references = [String:[String]]()
     var tags = [String]()
     var mobileConfig = Bool()
+    var fix = String()
     
     var checkResult = String()
     var ruleURLs = URL(string: "")
@@ -103,6 +104,8 @@ class rules {
             references = decodedYamlRule.references
             tags = decodedYamlRule.tags
             mobileConfig = decodedYamlRule.mobileconfig ?? false
+            fix = decodedYamlRule.fix
+        
         }
         
     }
