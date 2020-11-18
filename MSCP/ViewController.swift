@@ -180,7 +180,6 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     
     
     @IBAction func remediateButton(_ sender: Any) {
-        print("hello im a remediate button")
         var checkRules = [String]()
         for rule in rulesStatus {
             for (key,value) in rule{
@@ -219,8 +218,8 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
             }
             DispatchQueue.main.async {
                 // send it off somewhere else to do things
-                // self.createPDF(yams: yams)
                 self.remediate(yams: yams)
+                yams.removeAll()
             }
         }
         
@@ -274,6 +273,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
             }
             DispatchQueue.main.async {
                 self.createPDF(yams: yams)
+                yams.removeAll()
             }
             
         }
@@ -324,7 +324,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                     let command = yam.fix.components(separatedBy: "----")[1]
                     failArray.append([yam.id: command])
                     
-                }  
+                }
                 }
             }
             try? ExecutionService.executeScript(at: failArray) { (finishedArray) -> () in
@@ -450,14 +450,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
                 //                        try document.generate(to: URL(fileURLWithPath: ("~/Desktop/test1.pdf" as NSString).expandingTildeInPath)) { progress in
                 print ("Progress : \(Int(progress * 100))%")
             }
-        //            } catch {
-        //                let alert = NSAlert()
-        //                alert.messageText = "Error"
-        //                alert.informativeText = "Failed to save image."
-        //                alert.alertStyle = .informational
-        //                alert.addButton(withTitle: "OK")
-        //                alert.runModal()
-        //            }
+
         case .cancel:
             print("User Cancelled")
         default:
